@@ -715,6 +715,33 @@
         .proceso-bloque { grid-template-columns: 1fr; gap: 1rem; }
         .contacto-frase { font-size: 1.6rem; }
       }
+
+      /* ─── BOTÓN CERRAR SECCIÓN ─── */
+.seccion-cerrar {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+  margin-top: 3rem;
+}
+
+.btn-cerrar {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  background: none;
+  border: 1px solid var(--line);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-cerrar:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
     </style>
   </head>
   <body>
@@ -778,6 +805,9 @@
             </div>
           </div>
         </div>
+        <div class="seccion-cerrar">
+  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+</div>
       </div>
     </section>
 
@@ -933,7 +963,9 @@
             </div>
           </div>
         </div>
-
+<div class="seccion-cerrar">
+  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+</div>
       </div>
     </section>
 
@@ -963,6 +995,9 @@
             <p class="servicio-desc">Actualización y mantenimiento de sitios web. Carga y edición de contenidos, redacción institucional y optimización de estructura. Coordinación entre identidad discursiva, diseño visual y arquitectura digital.</p>
           </div>
         </div>
+        <div class="seccion-cerrar">
+  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+</div>
       </div>
     </section>
 
@@ -1001,6 +1036,9 @@
             </div>
           </div>
         </div>
+        <div class="seccion-cerrar">
+  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+</div>
       </div>
     </section>
 
@@ -1190,6 +1228,9 @@
             </div>
           </div>
         </div>
+        <div class="seccion-cerrar">
+  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+</div>
       </div>
     </section>
 
@@ -1225,6 +1266,9 @@
             </div>
           </div>
         </div>
+        <div class="seccion-cerrar">
+  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+</div>
       </div>
     </section>
 
@@ -1242,6 +1286,9 @@
             <a class="contacto-link" href="#">Caballito, Buenos Aires</a>
           </div>
         </div>
+        <div class="seccion-cerrar">
+  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+</div>
       </div>
     </section>
 
