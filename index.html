@@ -28,11 +28,10 @@
         --line: #d4cec7;
         --serif: "Cormorant Garamond", Georgia, serif;
         --mono: "DM Mono", monospace;
+        --nav-h: 56px;
       }
 
-      html {
-        scroll-behavior: smooth;
-      }
+      html { scroll-behavior: smooth; }
 
       body {
         background: var(--bg);
@@ -42,6 +41,7 @@
         line-height: 1.7;
         overflow-x: hidden;
         font-size: 16px;
+        padding-top: var(--nav-h);
       }
 
       body::before {
@@ -54,93 +54,66 @@
         opacity: 0.4;
       }
 
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
+      .container { max-width: 960px; margin: 0 auto; padding: 0 2.5rem; }
+
+      section { padding: 5rem 0; border-top: 1px solid var(--line); }
+
+      /* ─── NAV FIJO ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
         padding: 0 2.5rem;
       }
-      section {
-        padding: 5rem 0;
-        border-top: 1px solid var(--line);
+
+      .nav-inner {
+        max-width: 960px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
-      /* ─── HEADER ─── */
-      header {
-        padding: 6rem 0 4rem;
-      }
-
-      .header-inner {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: end;
-        gap: 2rem;
-      }
-
-      .name {
-        font-size: clamp(3rem, 8vw, 6.5rem);
-        font-weight: 300;
-        line-height: 0.95;
-        letter-spacing: -0.02em;
-      }
-      .name em {
-        font-style: italic;
-        color: var(--accent);
-      }
-
-      .header-meta {
-        text-align: right;
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--mid);
-        line-height: 2;
-      }
-
-      .tagline {
-        margin-top: 2.5rem;
-        font-size: clamp(1rem, 2vw, 1.3rem);
+      .nav-nombre {
+        font-family: var(--serif);
+        font-size: 1.1rem;
         font-weight: 300;
         font-style: italic;
-        color: var(--mid);
-        max-width: 560px;
-        line-height: 1.6;
-        border-left: 2px solid var(--accent);
-        padding-left: 1.25rem;
+        color: var(--ink);
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
       }
+      .nav-nombre em { color: var(--accent); font-style: normal; }
 
-      nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--bg);
-  padding: 1rem 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 3.5rem;
-}
-      nav a {
+      .nav-links { display: flex; gap: 0.6rem; }
+
+      .nav-links a {
         font-family: var(--mono);
-        font-size: 0.875rem;
+        font-size: 0.8rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--ink);
         text-decoration: none;
         border: 1px solid var(--line);
-        padding: 0.5rem 1rem;
-        transition: border-color 0.2s, color 0.2s, background 0.2s;
+        padding: 0.4rem 0.9rem;
+        transition: border-color 0.2s, color 0.2s;
       }
-      nav a:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-      nav a.activo {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
+      .nav-links a:hover { border-color: var(--accent); color: var(--accent); }
+      .nav-links a.activo { border-color: var(--accent); color: var(--accent); }
+
+      /* ─── SECCIONES ─── */
+      .seccion-principal { display: none; }
+      .seccion-principal.activa { display: block; }
 
       /* ─── SECTION LABEL ─── */
       .section-label {
@@ -154,604 +127,201 @@
         align-items: center;
         gap: 1rem;
       }
-      .section-label::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: var(--line);
-        max-width: 120px;
+      .section-label::after { content: ""; flex: 1; height: 1px; background: var(--line); max-width: 120px; }
+
+      /* ─── HOME ─── */
+      #home { padding: 5rem 0 3rem; border-top: none; }
+
+      .header-inner { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; }
+
+      .name { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 300; line-height: 0.95; letter-spacing: -0.02em; }
+      .name em { font-style: italic; color: var(--accent); }
+
+      .header-meta {
+        text-align: right; font-family: var(--mono); font-size: 0.75rem;
+        letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); line-height: 2;
+      }
+
+      .tagline {
+        margin-top: 2.5rem;
+        font-size: clamp(1rem, 2vw, 1.3rem);
+        font-weight: 300; font-style: italic; color: var(--mid);
+        max-width: 560px; line-height: 1.6;
+        border-left: 2px solid var(--accent); padding-left: 1.25rem;
       }
 
       /* ─── SOBRE ─── */
-      .sobre-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: start;
-      }
-      .sobre-texto p {
-        font-size: 1rem;
-        line-height: 1.8;
-        margin-bottom: 1rem;
-      }
-      .sobre-texto p:last-child {
-        margin-bottom: 0;
-      }
-      .sobre-datos {
-        border-left: 1px solid var(--line);
-        padding-left: 2.5rem;
-      }
-      .dato-item {
-        margin-bottom: 1.8rem;
-      }
-      .dato-label {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--mid);
-        margin-bottom: 0.3rem;
-      }
-      .dato-value {
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.6;
-      }
+      .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+      .sobre-texto p { font-size: 1rem; line-height: 1.8; margin-bottom: 1rem; }
+      .sobre-texto p:last-child { margin-bottom: 0; }
+      .sobre-datos { border-left: 1px solid var(--line); padding-left: 2.5rem; }
+      .dato-item { margin-bottom: 1.8rem; }
+      .dato-label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.3rem; }
+      .dato-value { font-size: 1rem; font-weight: 400; line-height: 1.6; }
 
-      /* ─── DIFERENCIAL ─── */
-      .diferencial-inner {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 4rem;
-        align-items: center;
-      }
-      .diferencial-numero {
-        font-size: clamp(5rem, 12vw, 9rem);
-        font-weight: 300;
-        font-style: italic;
-        color: var(--line);
-        line-height: 1;
-        text-align: center;
-        user-select: none;
-      }
-      .diferencial-texto {
-        font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-        font-style: italic;
-        line-height: 1.6;
-      }
-      .diferencial-texto em {
-        font-style: normal;
-        color: var(--accent);
-      }
-
-      /* ─── SERVICIOS ─── */
-      .servicios-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0;
-      }
-      .servicio-item {
-        padding: 2rem 2rem 2rem 0;
-        border-right: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-      }
-      .servicio-item:nth-child(2n) {
-        padding: 2rem 0 2rem 2rem;
-        border-right: none;
-      }
-      .servicio-item:nth-child(n + 3) {
-        border-bottom: none;
-      }
-      .servicio-num {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        color: var(--accent);
-        margin-bottom: 0.8rem;
-      }
-      .servicio-titulo {
-        font-size: clamp(1.1rem, 2vw, 1.35rem);
-        font-weight: 400;
-        margin-bottom: 0.6rem;
-        line-height: 1.2;
-      }
-      .servicio-desc {
-        font-size: 1rem;
-        color: var(--mid);
-        line-height: 1.7;
-      }
-
-      /* ─── HERRAMIENTAS ─── */
-      .herramientas-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0;
-      }
-      .herr-bloque {
-        padding: 0 2.5rem 0 0;
-        border-right: 1px solid var(--line);
-      }
-      .herr-bloque:nth-child(2) {
-        padding: 0 2.5rem;
-      }
-      .herr-bloque:last-child {
-        border-right: none;
-        padding-right: 0;
-        padding-left: 2.5rem;
-      }
-      .herr-label {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--mid);
-        margin-bottom: 1.2rem;
-      }
-      .herr-items {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      .herr-tag {
-        font-family: var(--mono);
-        font-size: 0.8rem;
-        letter-spacing: 0.06em;
-        color: var(--ink);
-        background: var(--line);
-        padding: 0.35rem 0.75rem;
-        transition: background 0.2s, color 0.2s;
-        cursor: default;
-      }
-      .herr-tag:hover {
-        background: var(--ink);
-        color: var(--bg);
-      }
-      .herr-tag--accent {
-        background: transparent;
-        border: 1px solid var(--accent);
-        color: var(--accent);
-      }
-      .herr-tag--accent:hover {
-        background: var(--accent);
-        color: var(--bg);
-      }
-
-      /* ─── TRABAJOS ─── */
-      .trabajo-area {
-        padding: 3rem 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .trabajo-area:last-child {
-        border-bottom: none;
-      }
-
-      .trabajo-area-header {
-        display: grid;
-        grid-template-columns: 180px 1fr;
-        gap: 3rem;
-        margin-bottom: 2rem;
-        align-items: start;
-      }
-
-      .trabajo-area-num {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        color: var(--accent);
-        padding-top: 0.3rem;
-      }
-      .trabajo-area-num span {
-        display: block;
-        font-size: 2.5rem;
-        font-family: var(--serif);
-        font-style: italic;
-        font-weight: 300;
-        color: var(--line);
-        line-height: 1;
-        margin-bottom: 0.3rem;
-      }
-
-      .trabajo-area-titulo {
-        font-size: clamp(1.1rem, 2vw, 1.3rem);
-        font-weight: 400;
-        margin-bottom: 0.4rem;
-        line-height: 1.3;
-      }
-      .trabajo-area-desc {
-        font-size: 1rem;
-        color: var(--mid);
-        line-height: 1.7;
-        margin-bottom: 0.8rem;
-      }
-      .trabajo-tags {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-      .tag {
-        font-family: var(--mono);
-        font-size: 0.7rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--mid);
-        border: 1px solid var(--line);
-        padding: 0.25rem 0.6rem;
-      }
-
-      /* ─── SUBPROYECTO ─── */
-      .subproyecto {
-        margin-bottom: 2.5rem;
-      }
-      .subproyecto:last-child {
-        margin-bottom: 0;
-      }
-
-      .subproyecto-label {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--ink);
-        margin-left: 180px;
-        margin-bottom: 0.8rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid var(--line);
-      }
-
-      /* ─── CARRUSEL ─── */
-      .carrusel-wrap {
-        margin-left: 180px;
-        position: relative;
-      }
-
-      .carrusel {
+      /* ─── BOTONES HOME CTA ─── */
+      .home-cta {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--line);
         display: flex;
         gap: 1rem;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        cursor: grab;
-        padding-bottom: 0.5rem;
+        flex-wrap: wrap;
       }
-      .carrusel:active {
-        cursor: grabbing;
-      }
-      .carrusel::-webkit-scrollbar {
-        display: none;
-      }
-
-      .carrusel-slide {
-        flex: 0 0 240px;
-        scroll-snap-align: start;
-        aspect-ratio: 4/5;
-        background: var(--line);
-        position: relative;
-        overflow: hidden;
-      }
-      .carrusel-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.4s ease;
-      }
-      .carrusel-slide:hover img {
-        transform: scale(1.03);
-      }
-
-      .carrusel-placeholder {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        background: #eae6df;
-      }
-      .ph-label {
-        font-family: var(--mono);
-        font-size: 0.7rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--mid);
-        text-align: center;
-        padding: 0 1rem;
-      }
-      .ph-icon {
-        font-size: 1.5rem;
-        color: var(--line);
-      }
-
-      .carrusel-nav {
-        display: flex;
-        gap: 0.5rem;
-        margin-top: 0.8rem;
-        align-items: center;
-      }
-      .carrusel-btn {
-        background: none;
-        border: 1px solid var(--line);
-        color: var(--mid);
-        font-family: var(--mono);
-        font-size: 0.8rem;
-        width: 32px;
-        height: 32px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: border-color 0.2s, color 0.2s;
-      }
-      .carrusel-btn:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-      .carrusel-dots {
-        display: flex;
-        gap: 0.4rem;
-        align-items: center;
-        margin-left: 0.5rem;
-      }
-      .carrusel-dot {
-        width: 6px;
-        height: 6px;
-        background: var(--line);
-        border-radius: 50%;
-        transition: background 0.2s;
-      }
-      .carrusel-dot.active {
-        background: var(--accent);
-      }
-
-      /* ─── FORMACIÓN ─── */
-      .formacion-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-      }
-      .formacion-bloque h3 {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--mid);
-        margin-bottom: 1.5rem;
-      }
-      .formacion-item {
-        padding: 1.2rem 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .formacion-item:last-child {
-        border-bottom: none;
-      }
-      .formacion-titulo {
-        font-size: 1.1rem;
-        font-weight: 400;
-        line-height: 1.3;
-        margin-bottom: 0.3rem;
-      }
-      .formacion-meta {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.08em;
-        color: var(--mid);
-        line-height: 1.6;
-      }
-
-      /* ─── CONTACTO ─── */
-      .contacto-inner {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: start;
-      }
-      .contacto-frase {
-        font-size: clamp(1.6rem, 4vw, 3rem);
-        font-weight: 300;
-        line-height: 1.2;
-      }
-      .contacto-frase em {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .contacto-link {
-        display: block;
+      .btn-cta {
         font-family: var(--mono);
         font-size: 0.875rem;
         letter-spacing: 0.08em;
+        text-transform: uppercase;
         color: var(--ink);
-        text-decoration: none;
-        padding: 1rem 0;
-        border-bottom: 1px solid var(--line);
-        transition: color 0.2s, padding-left 0.2s;
+        background: none;
+        border: 1px solid var(--line);
+        padding: 0.7rem 1.4rem;
+        cursor: pointer;
+        transition: border-color 0.2s, color 0.2s;
       }
-      .contacto-link:first-child {
-        border-top: 1px solid var(--line);
-      }
-      .contacto-link:hover {
-        color: var(--accent);
-        padding-left: 0.5rem;
-      }
+      .btn-cta:hover { border-color: var(--accent); color: var(--accent); }
+      .btn-cta--accent { border-color: var(--accent); color: var(--accent); }
 
-      /* ─── FOOTER ─── */
-      footer {
-        padding: 2rem 0;
-        border-top: 1px solid var(--line);
-      }
-      footer .container {
-        display: flex;
-        justify-content: space-between;
-      }
-      footer span {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--mid);
-      }
-
-      /* ─── ANIMACIONES ─── */
-      .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: none;
-      }
-
-      /* ─── PROYECTO LINK ─── */
-      .proyecto-link {
-        display: inline-block;
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--accent);
-        text-decoration: none;
-        margin-right: 1.2rem;
-        margin-bottom: 0.8rem;
-        transition: opacity 0.2s;
-      }
-      .proyecto-link:hover { opacity: 0.6; }
-
-      /* ─── DEL PENSAMIENTO AL FORMATO ─── */
+      /* ─── PROCESO ─── */
       .proceso-intro {
-        font-size: clamp(1rem, 2vw, 1.3rem);
-        font-style: italic;
-        color: var(--mid);
-        max-width: 620px;
-        line-height: 1.7;
-        margin-bottom: 3.5rem;
+        font-size: clamp(1rem, 2vw, 1.3rem); font-style: italic;
+        color: var(--mid); max-width: 620px; line-height: 1.7; margin-bottom: 3.5rem;
       }
-
       .proceso-bloque {
-        padding: 2.5rem 0;
-        border-bottom: 1px solid var(--line);
-        display: grid;
-        grid-template-columns: 180px 1fr;
-        gap: 3rem;
-        align-items: start;
+        padding: 2.5rem 0; border-bottom: 1px solid var(--line);
+        display: grid; grid-template-columns: 180px 1fr; gap: 3rem; align-items: start;
       }
       .proceso-bloque:last-child { border-bottom: none; }
-
       .proceso-meta { padding-top: 0.3rem; }
-
-      .proceso-num {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        color: var(--accent);
-        margin-bottom: 0.3rem;
-      }
-      .proceso-num span {
-        display: block;
-        font-size: 2.5rem;
-        font-family: var(--serif);
-        font-style: italic;
-        font-weight: 300;
-        color: var(--line);
-        line-height: 1;
-        margin-bottom: 0.3rem;
-      }
-
-      .proceso-desde {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.08em;
-        color: var(--mid);
-        margin-bottom: 0.6rem;
-      }
+      .proceso-num { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.3rem; }
+      .proceso-num span { display: block; font-size: 2.5rem; font-family: var(--serif); font-style: italic; font-weight: 300; color: var(--line); line-height: 1; margin-bottom: 0.3rem; }
+      .proceso-desde { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; color: var(--mid); margin-bottom: 0.6rem; }
       .proceso-flecha { color: var(--accent); margin: 0 0.3rem; }
+      .proceso-titulo { font-size: clamp(1.1rem, 2vw, 1.2rem); font-weight: 400; line-height: 1.3; margin-bottom: 0.5rem; }
+      .proceso-desc { font-size: 1rem; color: var(--mid); line-height: 1.7; }
 
-      .proceso-titulo {
-        font-size: clamp(1.1rem, 2vw, 1.2rem);
-        font-weight: 400;
-        line-height: 1.3;
-        margin-bottom: 0.5rem;
-      }
-      .proceso-desc {
-        font-size: 1rem;
-        color: var(--mid);
-        line-height: 1.7;
-      }
+      /* ─── TRABAJOS ─── */
+      .trabajo-area { padding: 3rem 0; border-bottom: 1px solid var(--line); }
+      .trabajo-area:last-child { border-bottom: none; }
+      .trabajo-area-header { display: grid; grid-template-columns: 180px 1fr; gap: 3rem; margin-bottom: 2rem; align-items: start; }
+      .trabajo-area-num { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent); padding-top: 0.3rem; }
+      .trabajo-area-num span { display: block; font-size: 2.5rem; font-family: var(--serif); font-style: italic; font-weight: 300; color: var(--line); line-height: 1; margin-bottom: 0.3rem; }
+      .trabajo-area-titulo { font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 400; margin-bottom: 0.4rem; line-height: 1.3; }
+      .trabajo-area-desc { font-size: 1rem; color: var(--mid); line-height: 1.7; margin-bottom: 0.8rem; }
+      .trabajo-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+      .tag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); border: 1px solid var(--line); padding: 0.25rem 0.6rem; }
 
-      /* ─── NAVEGACIÓN POR SECCIONES ─── */
-      .seccion-principal {
-        display: none;
-      }
-      .seccion-principal.activa {
-        display: block;
-      }
+      /* ─── SUBPROYECTO ─── */
+      .subproyecto { margin-bottom: 2.5rem; }
+      .subproyecto:last-child { margin-bottom: 0; }
+      .subproyecto-label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); margin-left: 180px; margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line); }
+
+      /* ─── CARRUSEL ─── */
+      .carrusel-wrap { margin-left: 180px; position: relative; }
+      .carrusel { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; padding-bottom: 0.5rem; }
+      .carrusel:active { cursor: grabbing; }
+      .carrusel::-webkit-scrollbar { display: none; }
+      .carrusel-slide { flex: 0 0 240px; scroll-snap-align: start; aspect-ratio: 4/5; background: var(--line); position: relative; overflow: hidden; }
+      .carrusel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+      .carrusel-slide:hover img { transform: scale(1.03); }
+      .carrusel-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; background: #eae6df; }
+      .ph-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-align: center; padding: 0 1rem; }
+      .ph-icon { font-size: 1.5rem; color: var(--line); }
+      .carrusel-nav { display: flex; gap: 0.5rem; margin-top: 0.8rem; align-items: center; }
+      .carrusel-btn { background: none; border: 1px solid var(--line); color: var(--mid); font-family: var(--mono); font-size: 0.8rem; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; }
+      .carrusel-btn:hover { border-color: var(--accent); color: var(--accent); }
+      .carrusel-dots { display: flex; gap: 0.4rem; align-items: center; margin-left: 0.5rem; }
+      .carrusel-dot { width: 6px; height: 6px; background: var(--line); border-radius: 50%; transition: background 0.2s; }
+      .carrusel-dot.active { background: var(--accent); }
+
+      /* ─── PROYECTO LINK ─── */
+      .proyecto-link { display: inline-block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-right: 1.2rem; margin-bottom: 0.8rem; transition: opacity 0.2s; }
+      .proyecto-link:hover { opacity: 0.6; }
+
+      /* ─── FORMACIÓN ─── */
+      .formacion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .formacion-bloque h3 { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.5rem; }
+      .formacion-item { padding: 1.2rem 0; border-bottom: 1px solid var(--line); }
+      .formacion-item:last-child { border-bottom: none; }
+      .formacion-titulo { font-size: 1.1rem; font-weight: 400; line-height: 1.3; margin-bottom: 0.3rem; }
+      .formacion-meta { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; color: var(--mid); line-height: 1.6; }
+
+      /* ─── HERRAMIENTAS ─── */
+      .herramientas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+      .herr-bloque { padding: 0 2.5rem 0 0; border-right: 1px solid var(--line); }
+      .herr-bloque:nth-child(2) { padding: 0 2.5rem; }
+      .herr-bloque:last-child { border-right: none; padding-right: 0; padding-left: 2.5rem; }
+      .herr-label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.2rem; }
+      .herr-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+      .herr-tag { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; color: var(--ink); background: var(--line); padding: 0.35rem 0.75rem; transition: background 0.2s, color 0.2s; cursor: default; }
+      .herr-tag:hover { background: var(--ink); color: var(--bg); }
+      .herr-tag--accent { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+      .herr-tag--accent:hover { background: var(--accent); color: var(--bg); }
+
+      /* ─── CONTACTO ─── */
+      .contacto-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+      .contacto-frase { font-size: clamp(1.6rem, 4vw, 3rem); font-weight: 300; line-height: 1.2; }
+      .contacto-frase em { font-style: italic; color: var(--accent); }
+      .contacto-link { display: block; font-family: var(--mono); font-size: 0.875rem; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--line); transition: color 0.2s, padding-left 0.2s; }
+      .contacto-link:first-child { border-top: 1px solid var(--line); }
+      .contacto-link:hover { color: var(--accent); padding-left: 0.5rem; }
+
+      /* ─── BOTÓN CERRAR ─── */
+      .seccion-cerrar { display: flex; justify-content: flex-end; padding-top: 3rem; border-top: 1px solid var(--line); margin-top: 3rem; }
+      .btn-cerrar { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); background: none; border: 1px solid var(--line); padding: 0.5rem 1rem; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+      .btn-cerrar:hover { border-color: var(--accent); color: var(--accent); }
+
+      /* ─── FOOTER ─── */
+      footer { padding: 2rem 0; border-top: 1px solid var(--line); }
+      footer .container { display: flex; justify-content: space-between; }
+      footer span { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
+
+      /* ─── ANIMACIONES ─── */
+      .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+      .reveal.visible { opacity: 1; transform: none; }
 
       /* ─── RESPONSIVE ─── */
       @media (max-width: 700px) {
         .container { padding: 0 1.5rem; }
+        nav { padding: 0 1.5rem; }
+        .nav-nombre { font-size: 0.95rem; }
+        .nav-links a { font-size: 0.7rem; padding: 0.35rem 0.6rem; }
         .header-inner { grid-template-columns: 1fr; }
         .header-meta { text-align: left; }
-        nav { justify-content: center; gap: 0.6rem; }
-        nav a { font-size: 0.8rem; padding: 0.5rem 0.8rem; }
-        .sobre-grid,
-        .servicios-grid,
-        .herramientas-grid,
-        .formacion-grid,
-        .diferencial-inner,
-        .contacto-inner { grid-template-columns: 1fr; gap: 2rem; }
+        .sobre-grid, .formacion-grid, .contacto-inner { grid-template-columns: 1fr; gap: 2rem; }
         .sobre-datos { border-left: none; border-top: 1px solid var(--line); padding-left: 0; padding-top: 2rem; }
-        .servicio-item,
-        .servicio-item:nth-child(2n) { padding: 1.8rem 0; border-right: none; border-bottom: 1px solid var(--line); }
-        .servicio-item:last-child { border-bottom: none; }
-        .herr-bloque,
-        .herr-bloque:nth-child(2),
-        .herr-bloque:last-child { padding: 0 0 2rem 0; border-right: none; border-bottom: 1px solid var(--line); }
+        .herramientas-grid { grid-template-columns: 1fr; }
+        .herr-bloque, .herr-bloque:nth-child(2), .herr-bloque:last-child { padding: 0 0 2rem 0; border-right: none; border-bottom: 1px solid var(--line); }
         .herr-bloque:last-child { border-bottom: none; padding-bottom: 0; }
         .trabajo-area-header { grid-template-columns: 1fr; gap: 0.5rem; }
         .carrusel-wrap, .subproyecto-label { margin-left: 0; }
         .carrusel-slide { flex: 0 0 180px; }
-        .diferencial-numero { font-size: 5rem; }
         .proceso-bloque { grid-template-columns: 1fr; gap: 1rem; }
-        .contacto-frase { font-size: 1.6rem; }
+        .home-cta { flex-direction: column; }
+        .btn-cta { text-align: center; }
       }
-
-      /* ─── BOTÓN CERRAR SECCIÓN ─── */
-.seccion-cerrar {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 3rem;
-  border-top: 1px solid var(--line);
-  margin-top: 3rem;
-}
-
-.btn-cerrar {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mid);
-  background: none;
-  border: 1px solid var(--line);
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
-}
-
-.btn-cerrar:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
     </style>
   </head>
   <body>
-    <!-- ─── HEADER ─── -->
-    <header>
+
+    <!-- ─── NAV FIJO ─── -->
+    <nav>
+      <div class="nav-inner">
+        <button class="nav-nombre" onclick="resetHome()">Noelia <em>Abraham</em></button>
+        <div class="nav-links">
+          <a href="#trabajo">Trabajo</a>
+          <a href="#formacion">Formación</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ─── HOME ─── -->
+    <section id="home">
       <div class="container">
         <div class="header-inner">
-       <a href="#" onclick="resetHome()" style="text-decoration:none;color:inherit;">
-  <h1 class="name">Noelia<br /><em>Abraham</em></h1>
-</a>
+          <h1 class="name">Noelia<br /><em>Abraham</em></h1>
           <div class="header-meta">
             Buenos Aires<br />
             noeliasabraham@gmail.com<br />
@@ -760,19 +330,9 @@
             2026
           </div>
         </div>
-        <p class="tagline">
-          Comunicación digital y producción de contenido. </br> Desarrollo web y produccción editorial.
-        
-        </p>
-        <nav>
-          <a href="#servicios">Servicios</a>
-          <a href="#herramientas">Herramientas</a>
-          <a href="#trabajos">Trabajos</a>
-          <a href="#formacion">Formación</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
+        <p class="tagline">Comunicación digital y producción de contenido.<br />Desarrollo web y producción editorial.</p>
       </div>
-    </header>
+    </section>
 
     <!-- ─── SOBRE ─── -->
     <section id="sobre">
@@ -787,126 +347,119 @@
           <div class="sobre-datos">
             <div class="dato-item">
               <div class="dato-label">Formación académica</div>
-              <div class="dato-value">
-                Lic. en Letras, UBA · 2024<br />Prof. en Letras, UBA · 2023<br />Doctoranda en Literatura, UBA <br />Tec. Superior en Análisis de Sistemas
-              </div>
+              <div class="dato-value">Lic. en Letras, UBA · 2024<br />Prof. en Letras, UBA · 2023<br />Doctoranda en Literatura, UBA<br />Tec. Superior en Análisis de Sistemas</div>
             </div>
             <div class="dato-item">
               <div class="dato-label">Investigación</div>
-              <div class="dato-value">
-                Poesía oral argentina<br />Instituto de Lit. Hispanoamericana, UBA
-              </div>
+              <div class="dato-value">Poesía oral argentina<br />Instituto de Lit. Hispanoamericana, UBA</div>
             </div>
             <div class="dato-item">
               <div class="dato-label">Áreas de trabajo</div>
-              <div class="dato-value">
-                Comunicación digital<br />Producción editorial<br /> Investigación y docencia<br />Programación web
+              <div class="dato-value">Comunicación digital<br />Producción editorial<br />Investigación y docencia<br />Programación web</div>
+            </div>
+          </div>
+        </div>
+        <div class="home-cta reveal">
+          <button class="btn-cta btn-cta--accent" onclick="mostrarSeccion('trabajo')">→ Ver trabajo</button>
+          <button class="btn-cta" onclick="mostrarSeccion('formacion')">→ Formación</button>
+          <button class="btn-cta" onclick="mostrarSeccion('contacto')">→ Contacto</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECCIÓN: TRABAJO
+    ══════════════════════════════════════════ -->
+    <section id="trabajo" class="seccion-principal">
+      <div class="container">
+        <div class="section-label">Trabajo</div>
+
+        <!-- ── PROCESO ── -->
+        <p class="proceso-intro reveal">Desarrollo estrategias para traducir producción intelectual en intervenciones digitales con circulación contemporánea.</p>
+
+        <!-- 01 · ARTÍCULO → CARRUSEL -->
+        <div class="proceso-bloque reveal">
+          <div class="proceso-meta">
+            <div class="proceso-num"><span>01</span>Artículo largo</div>
+            <div class="proceso-desde">texto<span class="proceso-flecha">→</span>carrusel</div>
+          </div>
+          <div>
+            <div class="proceso-titulo">Del argumento a la secuencia visual</div>
+            <p class="proceso-desc">cLeo, identifico el argumento central y lo traduzco en una secuencia de imágenes que puede leerse sola, sin perder el rigor del original.</p>
+            <!-- Carrusel A -->
+            <div style="margin-top: 1.5rem;">
+              <div class="carrusel" id="cp1a">
+                <div class="carrusel-slide" style="flex:0 0 240px;">
+                  <video src="img/32.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+                </div>
+                <div class="carrusel-slide"><img src="img/14.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/15.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/16.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/18.png" alt="Artículo"></div>
+              </div>
+              <div class="carrusel-nav">
+                <button class="carrusel-btn" onclick="scroll_c('cp1a',-1)">←</button>
+                <button class="carrusel-btn" onclick="scroll_c('cp1a',1)">→</button>
+                <div class="carrusel-dots" id="dots-cp1a"></div>
+              </div>
+            </div>
+            <!-- Carrusel B -->
+            <div style="margin-top: 2rem;">
+              <div class="carrusel" id="cp1b">
+                <div class="carrusel-slide" style="flex:0 0 240px;">
+                  <video src="img/33.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+                </div>
+                <div class="carrusel-slide"><img src="img/10.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/11.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/12.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/13.png" alt="Artículo"></div>
+              </div>
+              <div class="carrusel-nav">
+                <button class="carrusel-btn" onclick="scroll_c('cp1b',-1)">←</button>
+                <button class="carrusel-btn" onclick="scroll_c('cp1b',1)">→</button>
+                <div class="carrusel-dots" id="dots-cp1b"></div>
+              </div>
+            </div>
+            <!-- Carrusel C -->
+            <div style="margin-top: 2rem;">
+              <div class="carrusel" id="cp1c">
+                <div class="carrusel-slide" style="flex:0 0 240px;">
+                  <video src="img/40.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+                </div>
+                <div class="carrusel-slide"><img src="img/36.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/37.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/38.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/39.png" alt="Artículo"></div>
+              </div>
+              <div class="carrusel-nav">
+                <button class="carrusel-btn" onclick="scroll_c('cp1c',-1)">←</button>
+                <button class="carrusel-btn" onclick="scroll_c('cp1c',1)">→</button>
+                <div class="carrusel-dots" id="dots-cp1c"></div>
+              </div>
+            </div>
+            <!-- Carrusel D -->
+            <div style="margin-top: 2rem;">
+              <div class="carrusel" id="cp1d">
+                <div class="carrusel-slide" style="flex:0 0 240px;">
+                  <video src="img/49.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+                </div>
+                <div class="carrusel-slide"><img src="img/43.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/44.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/45.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/47.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/48.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/46.png" alt="Artículo"></div>
+              </div>
+              <div class="carrusel-nav">
+                <button class="carrusel-btn" onclick="scroll_c('cp1d',-1)">←</button>
+                <button class="carrusel-btn" onclick="scroll_c('cp1d',1)">→</button>
+                <div class="carrusel-dots" id="dots-cp1d"></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="seccion-cerrar">
-  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-</div>
-      </div>
-    </section>
 
-    <!-- ─── DEL PENSAMIENTO AL FORMATO ─── -->
-    <section id="proceso">
-      <div class="container">
-        <div class="section-label">Del pensamiento al formato digital</div>
-        <p class="proceso-intro reveal">
-          Desarrollo estrategias para traducir producción intelectual
-          en intervenciones digitales con circulación contemporánea.
-        </p>
-
-        <!-- 01 · ARTÍCULO → CARRUSEL -->
-<div class="proceso-bloque reveal">
-  <div class="proceso-meta">
-    <div class="proceso-num"><span>01</span>Artículo largo</div>
-    <div class="proceso-desde">texto<span class="proceso-flecha">→</span>carrusel</div>
-  </div>
-  <div>
-    <div class="proceso-titulo">Del argumento a la secuencia visual</div>
-    <p class="proceso-desc">Leo, identifico el argumento central y lo traduzco en una secuencia de imágenes que puede leerse sola, sin perder el rigor del original.</p>
-
-    <!-- Carrusel A -->
-    <div style="margin-top: 1.5rem;">
-      <div class="carrusel" id="cp1a">
-        <div class="carrusel-slide" style="flex:0 0 240px;">
-          <video src="img/32.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-        </div>
-        <div class="carrusel-slide"><img src="img/14.png" alt="Artículo"></div>
-        <div class="carrusel-slide"><img src="img/15.png" alt="Artículo"></div>
-        <div class="carrusel-slide"><img src="img/16.png" alt="Artículo"></div>
-        <div class="carrusel-slide"><img src="img/18.png" alt="Artículo"></div>
-      </div>
-      <div class="carrusel-nav">
-        <button class="carrusel-btn" onclick="scroll_c('cp1a',-1)">←</button>
-        <button class="carrusel-btn" onclick="scroll_c('cp1a',1)">→</button>
-        <div class="carrusel-dots" id="dots-cp1a"></div>
-      </div>
-    </div>
-
-    <!-- Carrusel B -->
-    <div style="margin-top: 2rem;">
-      <div class="carrusel" id="cp1b">
-        <div class="carrusel-slide" style="flex:0 0 240px;">
-          <video src="img/33.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-        </div>
-        <div class="carrusel-slide"><img src="img/10.png" alt="Artículo"></div>
-        <div class="carrusel-slide"><img src="img/11.png" alt="Artículo"></div>
-        <div class="carrusel-slide"><img src="img/12.png" alt="Artículo"></div>
-        <div class="carrusel-slide"><img src="img/13.png" alt="Artículo"></div>
-      </div>
-      <div class="carrusel-nav">
-        <button class="carrusel-btn" onclick="scroll_c('cp1b',-1)">←</button>
-        <button class="carrusel-btn" onclick="scroll_c('cp1b',1)">→</button>
-        <div class="carrusel-dots" id="dots-cp1b"></div>
-      </div>
-    </div>
-
-    <!-- Carrusel C -->
-<div style="margin-top: 2rem;">
-  <div class="carrusel" id="cp1c">
-    <div class="carrusel-slide" style="flex:0 0 240px;">
-      <video src="img/40.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-    </div>
-    <div class="carrusel-slide"><img src="img/36.png" alt="Artículo"></div>
-    <div class="carrusel-slide"><img src="img/37.png" alt="Artículo"></div>
-    <div class="carrusel-slide"><img src="img/38.png" alt="Artículo"></div>
-    <div class="carrusel-slide"><img src="img/39.png" alt="Artículo"></div>
-  </div>
-  <div class="carrusel-nav">
-    <button class="carrusel-btn" onclick="scroll_c('cp1c',-1)">←</button>
-    <button class="carrusel-btn" onclick="scroll_c('cp1c',1)">→</button>
-    <div class="carrusel-dots" id="dots-cp1c"></div>
-  </div>
-</div>
-
-    <!-- Carrusel D -->
-<div style="margin-top: 2rem;">
-  <div class="carrusel" id="cp1d">
-    <div class="carrusel-slide" style="flex:0 0 240px;">
-      <video src="img/49.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-    </div>
-    <div class="carrusel-slide"><img src="img/43.png" alt="Artículo"></div>
-    <div class="carrusel-slide"><img src="img/44.png" alt="Artículo"></div>
-    <div class="carrusel-slide"><img src="img/45.png" alt="Artículo"></div>
-    <div class="carrusel-slide"><img src="img/47.png" alt="Artículo"></div>
-    <div class="carrusel-slide"><img src="img/48.png" alt="Artículo"></div>
-    <div class="carrusel-slide"><img src="img/46.png" alt="Artículo"></div>
-  </div>
-  <div class="carrusel-nav">
-    <button class="carrusel-btn" onclick="scroll_c('cp1d',-1)">←</button>
-    <button class="carrusel-btn" onclick="scroll_c('cp1d',1)">→</button>
-    <div class="carrusel-dots" id="dots-cp1d"></div>
-  </div>
-</div>
-
-  </div>
-</div>
-        <!-- 02 · EVENTO → COMUNICACIÓN INTEGRAL -->
+        <!-- 02 · EVENTO → COMUNICACIÓN -->
         <div class="proceso-bloque reveal">
           <div class="proceso-meta">
             <div class="proceso-num"><span>02</span>Evento académico</div>
@@ -917,11 +470,12 @@
             <p class="proceso-desc">Diseño la identidad gráfica del evento, redacto los textos institucionales y armo la estrategia de difusión antes, durante y después.</p>
             <div style="margin-top: 1.5rem;">
               <div class="carrusel" id="cp2">
-                <div class="carrusel-slide"><img src="img/41.jpeg" alt="Artículo"></div>
-                <div class="carrusel-slide"><img src="img/1.png" alt="Artículo"></div>
-                 <div class="carrusel-slide"><img src="img/4.png" alt="Artículo"></div>
-                  <div class="carrusel-slide"><img src="img/49.png" alt="Artículo"></div>
-                   <div class="carrusel-slide"><img src="img/50.png" alt="Artículo"></div>
+                <div class="carrusel-slide"><img src="img/41.jpeg" alt="Evento"></div>
+                <div class="carrusel-slide"><img src="img/41-b.png" alt="Evento"></div>
+                <div class="carrusel-slide"><img src="img/1.png" alt="Evento"></div>
+                <div class="carrusel-slide"><img src="img/4.png" alt="Evento"></div>
+                <div class="carrusel-slide"><img src="img/49.png" alt="Evento"></div>
+                <div class="carrusel-slide"><img src="img/50.png" alt="Evento"></div>
               </div>
               <div class="carrusel-nav">
                 <button class="carrusel-btn" onclick="scroll_c('cp2',-1)">←</button>
@@ -932,7 +486,7 @@
           </div>
         </div>
 
-        <!-- 03 · CONTENIDO COMPLEJO → WEB -->
+        <!-- 03 · IDEAS → WEB -->
         <div class="proceso-bloque reveal">
           <div class="proceso-meta">
             <div class="proceso-num"><span>03</span>Contenido complejo</div>
@@ -943,16 +497,15 @@
             <p class="proceso-desc">Construyo la estructura del sitio pensando en cómo el lector recorre el contenido: qué aparece primero, qué se destaca, cómo se conecta.</p>
             <div style="margin-top: 1.5rem;">
               <div class="carrusel" id="cp3">
-                <div class="carrusel-slide">
-  <video src="img/34.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-</div>
-<div class="carrusel-slide" style="flex:0 0 240px;">
-  <video src="img/35.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-</div>
-<div class="carrusel-slide" style="flex:0 0 240px;">
-          <video src="img/62.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-        </div>
-                
+                <div class="carrusel-slide" style="flex:0 0 240px;">
+                  <video src="img/34.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+                </div>
+                <div class="carrusel-slide" style="flex:0 0 240px;">
+                  <video src="img/35.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+                </div>
+                <div class="carrusel-slide" style="flex:0 0 240px;">
+                  <video src="img/62.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+                </div>
               </div>
               <div class="carrusel-nav">
                 <button class="carrusel-btn" onclick="scroll_c('cp3',-1)">←</button>
@@ -962,96 +515,14 @@
             </div>
           </div>
         </div>
-<div class="seccion-cerrar">
-  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-</div>
-      </div>
-    </section>
 
-    <!-- ─── SERVICIOS ─── -->
-    <section id="servicios" class="seccion-principal">
-      <div class="container">
-        <div class="section-label">Servicios</div>
-        <div class="servicios-grid reveal">
-          <div class="servicio-item">
-            <div class="servicio-num">01</div>
-            <div class="servicio-titulo">Gestión integral de redes sociales</div>
-            <p class="servicio-desc">Diseño la estrategia de comunicación digital y la bajo a un plan mensual de contenidos. Defino línea editorial, calendario, formatos y tono. Produzco piezas (posts, reels, carruseles), redacto copies y gestiono la publicación. Analizo métricas y ajusto la estrategia según resultados.</p>
-          </div>
-          <div class="servicio-item">
-            <div class="servicio-num">02</div>
-            <div class="servicio-titulo">Producción de contenido para intervenciones públicas</div>
-            <p class="servicio-desc">Transformo libros, conferencias, entrevistas y documentales en piezas digitales: cápsulas de video, hilos en X, carruseles explicativos y fragmentos editados para Instagram. Selecciono conceptos clave, sintetizo ideas y adapto el lenguaje al formato y a la plataforma.</p>
-          </div>
-          <div class="servicio-item">
-            <div class="servicio-num">03</div>
-            <div class="servicio-titulo">Edición y escritura académica</div>
-            <p class="servicio-desc">Edición estructural y de estilo de tesis, artículos y ponencias. Reorganización argumentativa, claridad conceptual y ajuste al marco teórico. Adaptación de textos académicos para públicos no especializados sin perder rigor.</p>
-          </div>
-          <div class="servicio-item">
-            <div class="servicio-num">04</div>
-            <div class="servicio-titulo">Comunicación institucional y web</div>
-            <p class="servicio-desc">Actualización y mantenimiento de sitios web. Carga y edición de contenidos, redacción institucional y optimización de estructura. Coordinación entre identidad discursiva, diseño visual y arquitectura digital.</p>
-          </div>
-        </div>
-        <div class="seccion-cerrar">
-  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-</div>
-      </div>
-    </section>
+        <!-- ── TRABAJOS SELECCIONADOS ── -->
+        <div class="section-label" style="margin-top:4rem;">Trabajos seleccionados</div>
 
-    <!-- ─── HERRAMIENTAS ─── -->
-    <section id="herramientas" class="seccion-principal">
-      <div class="container">
-        <div class="section-label">Herramientas y tecnologías</div>
-        <div class="herramientas-grid reveal">
-          <div class="herr-bloque">
-            <div class="herr-label">Redes sociales</div>
-            <div class="herr-items">
-              <span class="herr-tag">Instagram</span>
-              <span class="herr-tag">Facebook</span>
-              <span class="herr-tag">Twitter / X</span>
-              <span class="herr-tag">LinkedIn</span>
-              <span class="herr-tag">TikTok</span>
-              <span class="herr-tag">YouTube</span>
-            </div>
-          </div>
-          <div class="herr-bloque">
-            <div class="herr-label">Diseño</div>
-            <div class="herr-items">
-              <span class="herr-tag">Canva</span>
-              <span class="herr-tag">Adobe Illustrator</span>
-              <span class="herr-tag">Photoshop</span>
-              <span class="herr-tag">InDesign</span>
-            </div>
-          </div>
-          <div class="herr-bloque">
-            <div class="herr-label">Programación y tecnología</div>
-            <div class="herr-items">
-              <span class="herr-tag">HTML / CSS / JS</span>
-              <span class="herr-tag">WordPress</span>
-              <span class="herr-tag">SQL</span>
-              <span class="herr-tag herr-tag--accent">IA — Claude · ChatGPT · APIs</span>
-            </div>
-          </div>
-        </div>
-        <div class="seccion-cerrar">
-  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-</div>
-      </div>
-    </section>
-
-    <!-- ─── TRABAJOS ─── -->
-    <section id="trabajos" class="seccion-principal">
-      <div class="container">
-        <div class="section-label">Trabajos seleccionados</div>
-
-        <!-- 01 · REDES SOCIALES -->
+        <!-- 01 · REDES -->
         <div class="trabajo-area reveal">
           <div class="trabajo-area-header">
-            <div class="trabajo-area-num">
-              <span>01</span>Gestión de redes
-            </div>
+            <div class="trabajo-area-num"><span>01</span>Gestión de redes</div>
             <div>
               <p class="trabajo-area-desc">Estrategia de comunicación digital, diseño de feed, selección y edición de texto para la producción de cápsulas y piezas para redes. Gestión editorial completa: desde la planificación hasta la publicación, tanto impresa como digital.</p>
               <div class="trabajo-tags">
@@ -1062,10 +533,9 @@
               </div>
             </div>
           </div>
-
-          <!-- Tierra Roja -->
+          <!-- Revista Impresa y Digital -->
           <div class="subproyecto">
-            <div class="subproyecto-label">Tierra Roja</div>
+            <div class="subproyecto-label">Revista Impresa y Digital</div>
             <div class="carrusel-wrap">
               <p class="trabajo-area-desc">Integrante del equipo editorial. Edición de artículos (lectura, corrección y trabajo con autores para adecuación a la línea editorial), carga y publicación en web. Desarrollo de criterios de selección y adaptación de contenidos para su circulación digital: definición de títulos, elección de imágenes y fragmentos destacados para piezas de difusión.</p>
               <a class="proyecto-link" href="https://www.instagram.com/tierraroja.com.ar/" target="_blank">↗ Instagram</a>
@@ -1075,25 +545,22 @@
                 <div class="carrusel-slide"><img src="img/14.png" alt="Tierra Roja" /></div>
                 <div class="carrusel-slide"><img src="img/43.png" alt="Tierra Roja" /></div>
                 <div class="carrusel-slide"><img src="img/56.png" alt="Tierra Roja" /></div>
-           
-                
               </div>
               <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('c1a', -1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('c1a', 1)">→</button>
+                <button class="carrusel-btn" onclick="scroll_c('c1a',-1)">←</button>
+                <button class="carrusel-btn" onclick="scroll_c('c1a',1)">→</button>
                 <div class="carrusel-dots" id="dots-c1a"></div>
               </div>
             </div>
           </div>
-
-          <!-- Tipas Móviles -->
+          <!-- Editorial -->
           <div class="subproyecto">
-            <div class="subproyecto-label">Editorial Tipas Móviles</div>
+            <div class="subproyecto-label">Editorial</div>
             <div class="carrusel-wrap">
               <p class="trabajo-area-desc">Integrante del equipo editorial. Edición de originales y acompañamiento a autoras en el proceso de publicación. Diseño y ejecución de estrategia de difusión digital: planificación de contenidos, armado de carruseles con entrevistas a nuevas autoras y producción de piezas para redes sociales, articulando identidad editorial y circulación pública.</p>
               <a class="proyecto-link" href="https://www.instagram.com/tipasmoviles/" target="_blank">↗ Instagram</a>
               <div class="carrusel" id="c1b">
-                  <div class="carrusel-slide"><img src="img/51.png" alt="Tipas Móviles"></div>
+                <div class="carrusel-slide"><img src="img/51.png" alt="Tipas Móviles"></div>
                 <div class="carrusel-slide"><img src="img/21.png" alt="Tipas Móviles"></div>
                 <div class="carrusel-slide"><img src="img/22.png" alt="Tipas Móviles"></div>
                 <div class="carrusel-slide"><img src="img/23.png" alt="Tipas Móviles"></div>
@@ -1101,13 +568,12 @@
                 <div class="carrusel-slide"><img src="img/60.png" alt="Tipas Móviles"></div>
               </div>
               <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('c1b', -1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('c1b', 1)">→</button>
+                <button class="carrusel-btn" onclick="scroll_c('c1b',-1)">←</button>
+                <button class="carrusel-btn" onclick="scroll_c('c1b',1)">→</button>
                 <div class="carrusel-dots" id="dots-c1b"></div>
               </div>
             </div>
           </div>
-
           <!-- Enlace Social -->
           <div class="subproyecto">
             <div class="subproyecto-label">Enlace Social Asoc. Civil y Feria Si o Si Diseño Argentino</div>
@@ -1116,8 +582,8 @@
               <a class="proyecto-link" href="https://www.instagram.com/feria.siosi/" target="_blank">↗ Instagram</a>
               <div class="carrusel" id="c1c">
                 <div class="carrusel-slide" style="flex:0 0 240px;">
-          <video src="img/61.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-        </div>
+                  <video src="img/61.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+                </div>
                 <div class="carrusel-slide"><img src="img/5.png" alt="Enlace Social"></div>
                 <div class="carrusel-slide"><img src="img/6.png" alt="Enlace Social"></div>
                 <div class="carrusel-slide"><img src="img/7.png" alt="Enlace Social"></div>
@@ -1125,20 +591,18 @@
                 <div class="carrusel-slide"><img src="img/9.png" alt="Enlace Social"></div>
               </div>
               <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('c1c', -1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('c1c', 1)">→</button>
+                <button class="carrusel-btn" onclick="scroll_c('c1c',-1)">←</button>
+                <button class="carrusel-btn" onclick="scroll_c('c1c',1)">→</button>
                 <div class="carrusel-dots" id="dots-c1c"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 02 · INTERVENCIONES PÚBLICAS -->
+        <!-- 02 · EVENTOS -->
         <div class="trabajo-area reveal">
           <div class="trabajo-area-header">
-            <div class="trabajo-area-num">
-              <span>02</span>Eventos
-            </div>
+            <div class="trabajo-area-num"><span>02</span>Eventos</div>
             <div>
               <div class="trabajo-area-titulo">II Seminario Internacional Poetry Slam · UBA</div>
               <p class="trabajo-area-desc">Coordinación general y comunicación integral del II Seminario Internacional Poetry Slam (evento integrado a la Semana de la Ciencia, FILO-UBA). Articulación con comité organizador, armado de mesas y coordinación con expositores de Argentina, Brasil, España, Portugal y Mozambique. Desarrollo de identidad visual (afiche A3 y piezas digitales), redacción de copys, publicación en redes y coordinación operativa de las dos jornadas.</p>
@@ -1158,8 +622,8 @@
               <div class="carrusel-slide"><img src="img/4.png" alt="Poetry Slam"></div>
             </div>
             <div class="carrusel-nav">
-              <button class="carrusel-btn" onclick="scroll_c('c2', -1)">←</button>
-              <button class="carrusel-btn" onclick="scroll_c('c2', 1)">→</button>
+              <button class="carrusel-btn" onclick="scroll_c('c2',-1)">←</button>
+              <button class="carrusel-btn" onclick="scroll_c('c2',1)">→</button>
               <div class="carrusel-dots" id="dots-c2"></div>
             </div>
           </div>
@@ -1168,9 +632,7 @@
         <!-- 03 · EDICIÓN Y ESCRITURA -->
         <div class="trabajo-area reveal">
           <div class="trabajo-area-header">
-            <div class="trabajo-area-num">
-              <span>03</span>Edición y escritura
-            </div>
+            <div class="trabajo-area-num"><span>03</span>Edición y escritura</div>
             <div>
               <div class="trabajo-area-titulo">Para Revistas y Editoriales</div>
               <p class="trabajo-area-desc">Producción de artículos académicos, ponencias en congresos nacionales e internacionales, y adaptación de contenido académico para públicos amplios.</p>
@@ -1184,16 +646,17 @@
           </div>
           <div class="carrusel-wrap">
             <div class="carrusel" id="c3">
-              <div class="carrusel-slide"><img src="img/19.png" alt="Tierra Roja" /></div>
-                <div class="carrusel-slide"><img src="img/52.jpeg" alt="Tierra Roja" /></div>
-                <div class="carrusel-slide"><img src="img/53.jpeg" alt="Tierra Roja" /></div>
-                <div class="carrusel-slide"><img src="img/20.png" alt="Tierra Roja" /></div>
-                <div class="carrusel-slide"><img src="img/56.jpeg" alt="Tierra Roja" /></div>
-                <div class="carrusel-slide"><img src="img/58.jpeg" alt="Tierra Roja" /></div>
+              <div class="carrusel-slide"><img src="img/19.png" alt="Edición"></div>
+              <div class="carrusel-slide"><img src="img/52.jpeg" alt="Edición"></div>
+              <div class="carrusel-slide"><img src="img/53.jpeg" alt="Edición"></div>
+              <div class="carrusel-slide"><img src="img/20.png" alt="Edición"></div>
+              <div class="carrusel-slide"><img src="img/56.jpeg" alt="Edición"></div>
+              <div class="carrusel-slide"><img src="img/58.jpeg" alt="Edición"></div>
+                       <div class="carrusel-slide"><img src="img/63.png" alt="Edición"></div>
             </div>
             <div class="carrusel-nav">
-              <button class="carrusel-btn" onclick="scroll_c('c3', -1)">←</button>
-              <button class="carrusel-btn" onclick="scroll_c('c3', 1)">→</button>
+              <button class="carrusel-btn" onclick="scroll_c('c3',-1)">←</button>
+              <button class="carrusel-btn" onclick="scroll_c('c3',1)">→</button>
               <div class="carrusel-dots" id="dots-c3"></div>
             </div>
           </div>
@@ -1202,9 +665,7 @@
         <!-- 04 · WEB E INSTITUCIONAL -->
         <div class="trabajo-area reveal">
           <div class="trabajo-area-header">
-            <div class="trabajo-area-num">
-              <span>04</span>Web e institucional
-            </div>
+            <div class="trabajo-area-num"><span>04</span>Web e institucional</div>
             <div>
               <div class="trabajo-area-titulo">Syntaxys Digital · Agencia digital</div>
               <p class="trabajo-area-desc">Diseño, desarrollo y mantenimiento de sitios web para pymes, proyectos culturales y artistas.</p>
@@ -1218,24 +679,26 @@
           </div>
           <div class="carrusel-wrap">
             <div class="carrusel" id="c4">
-              
               <div class="carrusel-slide"><img src="img/25.png" alt="Web"></div>
               <div class="carrusel-slide"><img src="img/26.png" alt="Web"></div>
             </div>
             <div class="carrusel-nav">
-              <button class="carrusel-btn" onclick="scroll_c('c4', -1)">←</button>
-              <button class="carrusel-btn" onclick="scroll_c('c4', 1)">→</button>
+              <button class="carrusel-btn" onclick="scroll_c('c4',-1)">←</button>
+              <button class="carrusel-btn" onclick="scroll_c('c4',1)">→</button>
               <div class="carrusel-dots" id="dots-c4"></div>
             </div>
           </div>
         </div>
+
         <div class="seccion-cerrar">
-  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-</div>
+          <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+        </div>
       </div>
     </section>
 
-    <!-- ─── FORMACIÓN ─── -->
+    <!-- ══════════════════════════════════════════
+         SECCIÓN: FORMACIÓN
+    ══════════════════════════════════════════ -->
     <section id="formacion" class="seccion-principal">
       <div class="container">
         <div class="section-label">Formación</div>
@@ -1267,13 +730,52 @@
             </div>
           </div>
         </div>
+
+        <!-- Herramientas -->
+        <div style="margin-top: 4rem;">
+          <div class="section-label">Herramientas y tecnologías</div>
+          <div class="herramientas-grid reveal">
+            <div class="herr-bloque">
+              <div class="herr-label">Redes sociales</div>
+              <div class="herr-items">
+                <span class="herr-tag">Instagram</span>
+                <span class="herr-tag">Facebook</span>
+                <span class="herr-tag">Twitter / X</span>
+                <span class="herr-tag">LinkedIn</span>
+                <span class="herr-tag">TikTok</span>
+                <span class="herr-tag">YouTube</span>
+              </div>
+            </div>
+            <div class="herr-bloque">
+              <div class="herr-label">Diseño</div>
+              <div class="herr-items">
+                <span class="herr-tag">Canva</span>
+                <span class="herr-tag">Adobe Illustrator</span>
+                <span class="herr-tag">Photoshop</span>
+                <span class="herr-tag">InDesign</span>
+              </div>
+            </div>
+            <div class="herr-bloque">
+              <div class="herr-label">Programación y tecnología</div>
+              <div class="herr-items">
+                <span class="herr-tag">HTML / CSS / JS</span>
+                <span class="herr-tag">WordPress</span>
+                <span class="herr-tag">SQL</span>
+                <span class="herr-tag herr-tag--accent">IA — Claude · ChatGPT · APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="seccion-cerrar">
-  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-</div>
+          <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+        </div>
       </div>
     </section>
 
-    <!-- ─── CONTACTO ─── -->
+    <!-- ══════════════════════════════════════════
+         SECCIÓN: CONTACTO
+    ══════════════════════════════════════════ -->
     <section id="contacto" class="seccion-principal">
       <div class="container">
         <div class="contacto-inner reveal">
@@ -1288,8 +790,8 @@
           </div>
         </div>
         <div class="seccion-cerrar">
-  <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-</div>
+          <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
+        </div>
       </div>
     </section>
 
@@ -1316,22 +818,41 @@
       );
       document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-      // ─── Navegación por secciones ───
-      document.querySelectorAll('nav a').forEach(link => {
+      // ─── Navegación ───
+      
+      function mostrarSeccion(id) {
+  document.querySelectorAll('.seccion-principal').forEach(s => s.classList.remove('activa'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('activo'));
+  const seccion = document.getElementById(id);
+  if (seccion) {
+    seccion.classList.add('activa');
+    // Primero activa los reveals, después scrollea
+    setTimeout(() => {
+      seccion.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+      const navH = document.querySelector('nav').offsetHeight;
+      const top = seccion.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }, 50);
+  }
+  const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+  if (link) link.classList.add('activo');
+}
+
+      function resetHome() {
+        document.querySelectorAll('.seccion-principal').forEach(s => s.classList.remove('activa'));
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('activo'));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
-          const target = this.getAttribute('href').replace('#', '');
-          document.querySelectorAll('.seccion-principal').forEach(s => s.classList.remove('activa'));
-          const seccion = document.getElementById(target);
-          if (seccion) seccion.classList.add('activa');
-          document.querySelectorAll('nav a').forEach(a => a.classList.remove('activo'));
-          this.classList.add('activo');
-          seccion.scrollIntoView({ behavior: 'smooth' });
+          mostrarSeccion(this.getAttribute('href').replace('#', ''));
         });
       });
 
       // ─── Carruseles ───
-      const ids = ["c1a", "c1b", "c1c", "c2", "c3", "c4", "cp1a", "cp1b", "cp1c", "cp1d", "cp2", "cp3"];
+      const ids = ["c1a","c1b","c1c","c2","c3","c4","cp1a","cp1b","cp1c","cp1d","cp2","cp3"];
 
       function buildDots(id) {
         const c = document.getElementById(id);
@@ -1370,10 +891,8 @@
         c.addEventListener("scroll", () => updateDots(id), { passive: true });
         let isDown = false, startX, scrollLeft;
         c.addEventListener("mousedown", (e) => {
-          isDown = true;
-          c.style.cursor = "grabbing";
-          startX = e.pageX - c.offsetLeft;
-          scrollLeft = c.scrollLeft;
+          isDown = true; c.style.cursor = "grabbing";
+          startX = e.pageX - c.offsetLeft; scrollLeft = c.scrollLeft;
         });
         c.addEventListener("mouseleave", () => { isDown = false; c.style.cursor = "grab"; });
         c.addEventListener("mouseup", () => { isDown = false; c.style.cursor = "grab"; });
@@ -1383,13 +902,6 @@
           c.scrollLeft = scrollLeft - (e.pageX - c.offsetLeft - startX) * 1.5;
         });
       });
-
-      // ─── Reset home ───
-function resetHome() {
-  document.querySelectorAll('.seccion-principal').forEach(s => s.classList.remove('activa'));
-  document.querySelectorAll('nav a').forEach(a => a.classList.remove('activo'));
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
     </script>
   </body>
 </html>
