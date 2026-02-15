@@ -301,6 +301,80 @@
         .home-cta { flex-direction: column; }
         .btn-cta { text-align: center; }
       }
+
+      /* ─── EXPERIENCIA PROFESIONAL ─── */
+.exp-bloque {
+  border-bottom: 1px solid var(--line);
+  padding: 2.5rem 0;
+}
+.exp-bloque:last-child { border-bottom: none; }
+
+.exp-categoria {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 1.5rem;
+}
+
+.exp-item {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.exp-item:last-child { border-bottom: none; }
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.exp-titulo {
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.exp-periodo {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.exp-desc {
+  font-size: 0.95rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.exp-lista {
+  margin-top: 0.8rem;
+  padding-left: 1rem;
+  list-style: none;
+}
+.exp-lista li {
+  font-size: 0.95rem;
+  color: var(--mid);
+  line-height: 1.7;
+  padding: 0.15rem 0;
+  position: relative;
+  padding-left: 1rem;
+}
+.exp-lista li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
     </style>
   </head>
   <body>
@@ -730,6 +804,106 @@
             </div>
           </div>
         </div>
+
+
+<!-- Experiencia profesional -->
+<div style="margin-top: 4rem;">
+  <div class="section-label">Experiencia profesional</div>
+
+  <!-- DOCENCIA -->
+  <div class="exp-bloque reveal">
+    <div class="exp-categoria">Docencia</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-titulo">Profesora Colaboradora</div>
+        <div class="exp-periodo">2° Cuatrimestre 2025</div>
+      </div>
+      <div class="formacion-meta">Facultad de Filosofía y Letras, UBA · Jornada parcial | Presencial</div>
+      <div class="exp-desc">Seminario de grado "Poesía oral, performance y territorio. Los slams de poesía como poética inexplorada de la poesía argentina". Prof. Titular: Dra. Lucía Tennina.</div>
+      <ul class="exp-lista">
+        <li>Colaboración en la planificación y dictado del seminario</li>
+        <li>Apoyo en actividades de investigación y análisis de corpus</li>
+        <li>Coordinación de actividades prácticas con estudiantes</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-titulo">Investigadora en Formación</div>
+        <div class="exp-periodo">2022 — Actual</div>
+      </div>
+      <div class="formacion-meta">Instituto de Literatura Hispanoamericana, FFyL, UBA</div>
+      <div class="exp-desc">Integrante del proyecto "Los slams de poesía del AMBA. Poesía, cuerpo y territorio", dirigido por la Dra. Lucía Tennina.</div>
+      <ul class="exp-lista">
+        <li>Investigación sobre poesía oral, performance y slams en el AMBA</li>
+        <li>Trabajo de campo: asistencia a eventos, entrevistas, registro audiovisual</li>
+        <li>Análisis de corpus poético oral contemporáneo</li>
+        <li>Presentación de ponencias en jornadas y congresos nacionales e internacionales</li>
+        <li>Producción de artículos académicos y divulgación científica</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ORGANIZACIÓN DE EVENTOS -->
+  <div class="exp-bloque reveal">
+    <div class="exp-categoria">Organización de Eventos CyT</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-titulo">Miembro de la Comisión Organizadora</div>
+        <div class="exp-periodo">2025</div>
+      </div>
+      <div class="formacion-meta">II Seminario Internacional Poetry Slam · FFyL, UBA</div>
+      <div class="exp-desc">Organización del II Seminario Internacional Poetry Slam: circuitos y escenas de la poesía oral contemporánea (13 y 14 de noviembre de 2025).</div>
+      <ul class="exp-lista">
+        <li>Coordinación logística y académica del evento</li>
+        <li>Gestión de invitaciones a expositores nacionales e internacionales</li>
+        <li>Articulación entre áreas académicas y actividades culturales</li>
+        <li>Difusión y comunicación del evento</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EXTENSIÓN Y TRANSFERENCIA -->
+  <div class="exp-bloque reveal">
+    <div class="exp-categoria">Extensión y transferencia</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-titulo">Co-Editora y Miembro del Consejo Editorial</div>
+        <div class="exp-periodo">2023 — 2025</div>
+      </div>
+      <div class="formacion-meta">Revista Tierra Roja</div>
+      <div class="exp-desc">Especializada en filosofía, política y cultura con una perspectiva argentina y latinoamericana.</div>
+    </div>
+  </div>
+
+  <!-- ÁMBITO EDITORIAL -->
+  <div class="exp-bloque reveal">
+    <div class="exp-categoria">Ámbito editorial</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-titulo">Asistente de Edición</div>
+        <div class="exp-periodo">2015 — 2018</div>
+      </div>
+      <div class="formacion-meta">Editorial Maipué</div>
+      <div class="exp-desc">Especializada en libros de texto, historia y cultura.</div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-titulo">Asistente de Edición</div>
+        <div class="exp-periodo">2016 — 2018</div>
+      </div>
+      <div class="formacion-meta">Editorial Topía</div>
+      <div class="exp-desc">Especializada en psicoanálisis, cultura y sociedad.</div>
+    </div>
+  </div>
+
+</div>
+
 
         <!-- Herramientas -->
         <div style="margin-top: 4rem;">
