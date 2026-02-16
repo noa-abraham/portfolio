@@ -6,108 +6,26 @@
     <title>Noelia Abraham</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
     <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       :root {
-        --bg: #f5f2ed;
-        --ink: #1a1814;
-        --mid: #4a4540;
-        --accent: #c13b2a;
-        --line: #d4cec7;
-        --serif: "Cormorant Garamond", Georgia, serif;
-        --mono: "DM Mono", monospace;
-        --nav-h: 56px;
+        --bg: #f5f2ed; --ink: #1a1814; --mid: #4a4540; --accent: #c13b2a; --line: #d4cec7;
+        --serif: "Cormorant Garamond", Georgia, serif; --mono: "DM Mono", monospace; --nav-h: 56px;
       }
-
       html { scroll-behavior: smooth; }
-
-      body {
-        background: var(--bg);
-        color: var(--ink);
-        font-family: var(--serif);
-        font-weight: 300;
-        line-height: 1.7;
-        overflow-x: hidden;
-        font-size: 16px;
-        padding-top: var(--nav-h);
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 1000;
-        opacity: 0.4;
-      }
-
+      body { background: var(--bg); color: var(--ink); font-family: var(--serif); font-weight: 300; line-height: 1.7; overflow-x: hidden; font-size: 16px; padding-top: var(--nav-h); }
+      body::before { content: ""; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.4; }
       .container { max-width: 960px; margin: 0 auto; padding: 0 2.5rem; }
-
       section { padding: 5rem 0; border-top: 1px solid var(--line); }
 
-      /* ─── NAV FIJO ─── */
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 200;
-        background: var(--bg);
-        border-bottom: 1px solid var(--line);
-        height: var(--nav-h);
-        display: flex;
-        align-items: center;
-        padding: 0 2.5rem;
-      }
-
-      .nav-inner {
-        max-width: 960px;
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .nav-nombre {
-        font-family: var(--serif);
-        font-size: 1.1rem;
-        font-weight: 300;
-        font-style: italic;
-        color: var(--ink);
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 0;
-      }
+      /* ─── NAV ─── */
+      nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--bg); border-bottom: 1px solid var(--line); height: var(--nav-h); display: flex; align-items: center; padding: 0 2.5rem; }
+      .nav-inner { max-width: 960px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+      .nav-nombre { font-family: var(--serif); font-size: 1.1rem; font-weight: 300; font-style: italic; color: var(--ink); cursor: pointer; background: none; border: none; padding: 0; }
       .nav-nombre em { color: var(--accent); font-style: normal; }
-
       .nav-links { display: flex; gap: 0.6rem; }
-
-      .nav-links a {
-        font-family: var(--mono);
-        font-size: 0.8rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--ink);
-        text-decoration: none;
-        border: 1px solid var(--line);
-        padding: 0.4rem 0.9rem;
-        transition: border-color 0.2s, color 0.2s;
-      }
+      .nav-links a { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--line); padding: 0.4rem 0.9rem; transition: border-color 0.2s, color 0.2s; }
       .nav-links a:hover { border-color: var(--accent); color: var(--accent); }
       .nav-links a.activo { border-color: var(--accent); color: var(--accent); }
 
@@ -116,39 +34,16 @@
       .seccion-principal.activa { display: block; }
 
       /* ─── SECTION LABEL ─── */
-      .section-label {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 2.5rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
+      .section-label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem; }
       .section-label::after { content: ""; flex: 1; height: 1px; background: var(--line); max-width: 120px; }
 
       /* ─── HOME ─── */
       #home { padding: 5rem 0 3rem; border-top: none; }
-
       .header-inner { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; }
-
       .name { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 300; line-height: 0.95; letter-spacing: -0.02em; }
       .name em { font-style: italic; color: var(--accent); }
-
-      .header-meta {
-        text-align: right; font-family: var(--mono); font-size: 0.75rem;
-        letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); line-height: 2;
-      }
-
-      .tagline {
-        margin-top: 2.5rem;
-        font-size: clamp(1rem, 2vw, 1.3rem);
-        font-weight: 300; font-style: italic; color: var(--mid);
-        max-width: 560px; line-height: 1.6;
-        border-left: 2px solid var(--accent); padding-left: 1.25rem;
-      }
+      .header-meta { text-align: right; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); line-height: 2; }
+      .tagline { margin-top: 2.5rem; font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 300; font-style: italic; color: var(--mid); max-width: 560px; line-height: 1.6; border-left: 2px solid var(--accent); padding-left: 1.25rem; }
 
       /* ─── SOBRE ─── */
       .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -159,39 +54,15 @@
       .dato-label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.3rem; }
       .dato-value { font-size: 1rem; font-weight: 400; line-height: 1.6; }
 
-      /* ─── BOTONES HOME CTA ─── */
-      .home-cta {
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--line);
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-      .btn-cta {
-        font-family: var(--mono);
-        font-size: 0.875rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--ink);
-        background: none;
-        border: 1px solid var(--line);
-        padding: 0.7rem 1.4rem;
-        cursor: pointer;
-        transition: border-color 0.2s, color 0.2s;
-      }
+      /* ─── HOME CTA ─── */
+      .home-cta { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); display: flex; gap: 1rem; flex-wrap: wrap; }
+      .btn-cta { font-family: var(--mono); font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); background: none; border: 1px solid var(--line); padding: 0.7rem 1.4rem; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
       .btn-cta:hover { border-color: var(--accent); color: var(--accent); }
       .btn-cta--accent { border-color: var(--accent); color: var(--accent); }
 
       /* ─── PROCESO ─── */
-      .proceso-intro {
-        font-size: clamp(1rem, 2vw, 1.3rem); font-style: italic;
-        color: var(--mid); max-width: 620px; line-height: 1.7; margin-bottom: 3.5rem;
-      }
-      .proceso-bloque {
-        padding: 2.5rem 0; border-bottom: 1px solid var(--line);
-        display: grid; grid-template-columns: 180px 1fr; gap: 3rem; align-items: start;
-      }
+      .proceso-intro { font-size: clamp(1rem, 2vw, 1.3rem); font-style: italic; color: var(--mid); max-width: 620px; line-height: 1.7; margin-bottom: 3.5rem; }
+      .proceso-bloque { padding: 2.5rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 180px 1fr; gap: 3rem; align-items: start; }
       .proceso-bloque:last-child { border-bottom: none; }
       .proceso-meta { padding-top: 0.3rem; }
       .proceso-num { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.3rem; }
@@ -219,7 +90,7 @@
 
       /* ─── CARRUSEL ─── */
       .carrusel-wrap { margin-left: 180px; position: relative; }
-      .carrusel { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; padding-bottom: 0.5rem; }
+      .carrusel { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; padding-bottom: 0.5rem; align-items: start; }
       .carrusel:active { cursor: grabbing; }
       .carrusel::-webkit-scrollbar { display: none; }
       .carrusel-slide { flex: 0 0 240px; scroll-snap-align: start; aspect-ratio: 4/5; background: var(--line); position: relative; overflow: hidden; }
@@ -234,6 +105,13 @@
       .carrusel-dots { display: flex; gap: 0.4rem; align-items: center; margin-left: 0.5rem; }
       .carrusel-dot { width: 6px; height: 6px; background: var(--line); border-radius: 50%; transition: background 0.2s; }
       .carrusel-dot.active { background: var(--accent); }
+
+      /* ─── SLIDE CON LEYENDA ─── */
+      .slide-con-leyenda { flex: 0 0 240px; scroll-snap-align: start; display: flex; flex-direction: column; }
+      .slide-con-leyenda .carrusel-slide { flex: none; width: 100%; }
+      .slide-leyenda { padding: 0.7rem 0 0.3rem; border-top: 1px solid var(--line); }
+      .slide-leyenda-titulo { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.3rem; }
+      .slide-leyenda-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.55; font-weight: 300; }
 
       /* ─── PROYECTO LINK ─── */
       .proyecto-link { display: inline-block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-right: 1.2rem; margin-bottom: 0.8rem; transition: opacity 0.2s; }
@@ -258,6 +136,20 @@
       .herr-tag:hover { background: var(--ink); color: var(--bg); }
       .herr-tag--accent { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
       .herr-tag--accent:hover { background: var(--accent); color: var(--bg); }
+
+      /* ─── EXPERIENCIA PROFESIONAL ─── */
+      .exp-bloque { border-bottom: 1px solid var(--line); padding: 2.5rem 0; }
+      .exp-bloque:last-child { border-bottom: none; }
+      .exp-categoria { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.5rem; }
+      .exp-item { padding: 1.2rem 0; border-bottom: 1px solid var(--line); }
+      .exp-item:last-child { border-bottom: none; }
+      .exp-header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.3rem; flex-wrap: wrap; }
+      .exp-titulo { font-size: 1.1rem; font-weight: 400; line-height: 1.3; }
+      .exp-periodo { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; color: var(--accent); white-space: nowrap; }
+      .exp-desc { font-size: 0.95rem; color: var(--mid); line-height: 1.7; margin-top: 0.5rem; font-style: italic; }
+      .exp-lista { margin-top: 0.8rem; padding-left: 1rem; list-style: none; }
+      .exp-lista li { font-size: 0.95rem; color: var(--mid); line-height: 1.7; padding: 0.15rem 0; position: relative; padding-left: 1rem; }
+      .exp-lista li::before { content: "—"; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
 
       /* ─── CONTACTO ─── */
       .contacto-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -296,90 +188,16 @@
         .herr-bloque:last-child { border-bottom: none; padding-bottom: 0; }
         .trabajo-area-header { grid-template-columns: 1fr; gap: 0.5rem; }
         .carrusel-wrap, .subproyecto-label { margin-left: 0; }
-        .carrusel-slide { flex: 0 0 180px; }
+        .carrusel-slide, .slide-con-leyenda { flex: 0 0 180px; }
         .proceso-bloque { grid-template-columns: 1fr; gap: 1rem; }
         .home-cta { flex-direction: column; }
         .btn-cta { text-align: center; }
       }
-
-      /* ─── EXPERIENCIA PROFESIONAL ─── */
-.exp-bloque {
-  border-bottom: 1px solid var(--line);
-  padding: 2.5rem 0;
-}
-.exp-bloque:last-child { border-bottom: none; }
-
-.exp-categoria {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--mid);
-  margin-bottom: 1.5rem;
-}
-
-.exp-item {
-  padding: 1.2rem 0;
-  border-bottom: 1px solid var(--line);
-}
-.exp-item:last-child { border-bottom: none; }
-
-.exp-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.3rem;
-  flex-wrap: wrap;
-}
-
-.exp-titulo {
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.3;
-}
-
-.exp-periodo {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  white-space: nowrap;
-}
-
-.exp-desc {
-  font-size: 0.95rem;
-  color: var(--mid);
-  line-height: 1.7;
-  margin-top: 0.5rem;
-  font-style: italic;
-}
-
-.exp-lista {
-  margin-top: 0.8rem;
-  padding-left: 1rem;
-  list-style: none;
-}
-.exp-lista li {
-  font-size: 0.95rem;
-  color: var(--mid);
-  line-height: 1.7;
-  padding: 0.15rem 0;
-  position: relative;
-  padding-left: 1rem;
-}
-.exp-lista li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-size: 0.8rem;
-}
     </style>
   </head>
   <body>
 
-    <!-- ─── NAV FIJO ─── -->
+    <!-- ─── NAV ─── -->
     <nav>
       <div class="nav-inner">
         <button class="nav-nombre" onclick="resetHome()">Noelia <em>Abraham</em></button>
@@ -396,13 +214,7 @@
       <div class="container">
         <div class="header-inner">
           <h1 class="name">Noelia<br /><em>Abraham</em></h1>
-          <div class="header-meta">
-            Buenos Aires<br />
-            noeliasabraham@gmail.com<br />
-            +54 9 11 6370 4901<br />
-            ——<br />
-            2026
-          </div>
+          <div class="header-meta">Buenos Aires<br />noeliasabraham@gmail.com<br />+54 9 11 6370 4901<br />——<br />2026</div>
         </div>
         <p class="tagline">Comunicación digital y producción de contenido.<br />Desarrollo web y producción editorial.</p>
       </div>
@@ -441,17 +253,13 @@
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-         SECCIÓN: TRABAJO
-    ══════════════════════════════════════════ -->
+    <!-- ══════════════ TRABAJO ══════════════ -->
     <section id="trabajo" class="seccion-principal">
       <div class="container">
         <div class="section-label">Trabajo</div>
-
-        <!-- ── PROCESO ── -->
         <p class="proceso-intro reveal">Desarrollo estrategias para traducir producción intelectual en intervenciones digitales con circulación contemporánea.</p>
 
-        <!-- 01 · ARTÍCULO → CARRUSEL -->
+        <!-- 01 -->
         <div class="proceso-bloque reveal">
           <div class="proceso-meta">
             <div class="proceso-num"><span>01</span>Del artículo a las redes sociales</div>
@@ -460,63 +268,39 @@
           <div>
             <div class="proceso-titulo">Del argumento a la secuencia visual</div>
             <p class="proceso-desc">Leo, identifico el argumento central y lo traduzco en una secuencia de imágenes que puede leerse sola, sin perder el rigor del original.</p>
-            <!-- Carrusel A -->
-            <div style="margin-top: 1.5rem;">
+            <div style="margin-top:1.5rem;">
               <div class="carrusel" id="cp1a">
-                <div class="carrusel-slide" style="flex:0 0 240px;">
-                  <video src="img/32.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-                </div>
+                <div class="carrusel-slide" style="flex:0 0 240px;"><video src="img/32.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
                 <div class="carrusel-slide"><img src="img/14.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/15.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/16.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/18.png" alt="Artículo"></div>
               </div>
-              <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('cp1a',-1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('cp1a',1)">→</button>
-                <div class="carrusel-dots" id="dots-cp1a"></div>
-              </div>
+              <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('cp1a',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('cp1a',1)">→</button><div class="carrusel-dots" id="dots-cp1a"></div></div>
             </div>
-            <!-- Carrusel B -->
-            <div style="margin-top: 2rem;">
+            <div style="margin-top:2rem;">
               <div class="carrusel" id="cp1b">
-                <div class="carrusel-slide" style="flex:0 0 240px;">
-                  <video src="img/33.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-                </div>
+                <div class="carrusel-slide" style="flex:0 0 240px;"><video src="img/33.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
                 <div class="carrusel-slide"><img src="img/10.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/11.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/12.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/13.png" alt="Artículo"></div>
               </div>
-              <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('cp1b',-1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('cp1b',1)">→</button>
-                <div class="carrusel-dots" id="dots-cp1b"></div>
-              </div>
+              <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('cp1b',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('cp1b',1)">→</button><div class="carrusel-dots" id="dots-cp1b"></div></div>
             </div>
-            <!-- Carrusel C -->
-            <div style="margin-top: 2rem;">
+            <div style="margin-top:2rem;">
               <div class="carrusel" id="cp1c">
-                <div class="carrusel-slide" style="flex:0 0 240px;">
-                  <video src="img/40.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-                </div>
+                <div class="carrusel-slide" style="flex:0 0 240px;"><video src="img/40.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
                 <div class="carrusel-slide"><img src="img/36.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/37.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/38.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/39.png" alt="Artículo"></div>
               </div>
-              <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('cp1c',-1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('cp1c',1)">→</button>
-                <div class="carrusel-dots" id="dots-cp1c"></div>
-              </div>
+              <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('cp1c',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('cp1c',1)">→</button><div class="carrusel-dots" id="dots-cp1c"></div></div>
             </div>
-            <!-- Carrusel D -->
-            <div style="margin-top: 2rem;">
+            <div style="margin-top:2rem;">
               <div class="carrusel" id="cp1d">
-                <div class="carrusel-slide" style="flex:0 0 240px;">
-                  <video src="img/49.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-                </div>
+                <div class="carrusel-slide" style="flex:0 0 240px;"><video src="img/49.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
                 <div class="carrusel-slide"><img src="img/43.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/44.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/45.png" alt="Artículo"></div>
@@ -524,16 +308,12 @@
                 <div class="carrusel-slide"><img src="img/48.png" alt="Artículo"></div>
                 <div class="carrusel-slide"><img src="img/46.png" alt="Artículo"></div>
               </div>
-              <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('cp1d',-1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('cp1d',1)">→</button>
-                <div class="carrusel-dots" id="dots-cp1d"></div>
-              </div>
+              <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('cp1d',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('cp1d',1)">→</button><div class="carrusel-dots" id="dots-cp1d"></div></div>
             </div>
           </div>
         </div>
 
-        <!-- 02 · EVENTO → COMUNICACIÓN -->
+        <!-- 02 -->
         <div class="proceso-bloque reveal">
           <div class="proceso-meta">
             <div class="proceso-num"><span>02</span>Evento académico</div>
@@ -542,7 +322,7 @@
           <div>
             <div class="proceso-titulo">Identidad visual, copy y estructura de difusión</div>
             <p class="proceso-desc">Diseño la identidad gráfica del evento, redacto los textos institucionales y armo la estrategia de difusión antes, durante y después.</p>
-            <div style="margin-top: 1.5rem;">
+            <div style="margin-top:1.5rem;">
               <div class="carrusel" id="cp2">
                 <div class="carrusel-slide"><img src="img/41.jpeg" alt="Evento"></div>
                 <div class="carrusel-slide"><img src="img/41-b.png" alt="Evento"></div>
@@ -551,16 +331,12 @@
                 <div class="carrusel-slide"><img src="img/49.png" alt="Evento"></div>
                 <div class="carrusel-slide"><img src="img/50.png" alt="Evento"></div>
               </div>
-              <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('cp2',-1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('cp2',1)">→</button>
-                <div class="carrusel-dots" id="dots-cp2"></div>
-              </div>
+              <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('cp2',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('cp2',1)">→</button><div class="carrusel-dots" id="dots-cp2"></div></div>
             </div>
           </div>
         </div>
 
-        <!-- 03 · IDEAS → WEB -->
+        <!-- 03 -->
         <div class="proceso-bloque reveal">
           <div class="proceso-meta">
             <div class="proceso-num"><span>03</span>Desarrollo web</div>
@@ -569,23 +345,13 @@
           <div>
             <div class="proceso-titulo">Arquitectura editorial que ordena ideas</div>
             <p class="proceso-desc">Construyo la estructura del sitio pensando en cómo el lector recorre el contenido: qué aparece primero, qué se destaca, cómo se conecta.</p>
-            <div style="margin-top: 1.5rem;">
+            <div style="margin-top:1.5rem;">
               <div class="carrusel" id="cp3">
-                <div class="carrusel-slide" style="flex:0 0 240px;">
-                  <video src="img/34.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-                </div>
-                <div class="carrusel-slide" style="flex:0 0 240px;">
-                  <video src="img/35.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-                </div>
-                <div class="carrusel-slide" style="flex:0 0 240px;">
-                  <video src="img/62.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-                </div>
+                <div class="carrusel-slide" style="flex:0 0 240px;"><video src="img/34.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
+                <div class="carrusel-slide" style="flex:0 0 240px;"><video src="img/35.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
+                <div class="carrusel-slide" style="flex:0 0 240px;"><video src="img/62.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
               </div>
-              <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('cp3',-1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('cp3',1)">→</button>
-                <div class="carrusel-dots" id="dots-cp3"></div>
-              </div>
+              <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('cp3',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('cp3',1)">→</button><div class="carrusel-dots" id="dots-cp3"></div></div>
             </div>
           </div>
         </div>
@@ -596,79 +362,113 @@
         <!-- 01 · REDES -->
         <div class="trabajo-area reveal">
           <div class="trabajo-area-header">
-            <div class="trabajo-area-num"><span>01</span>Gestión de redes</div>
+            <div class="trabajo-area-num"><span>01</span>Gestión de redes · Estrategia, diseño y producción editorial</div>
             <div>
-              <p class="trabajo-area-desc">Estrategia de comunicación digital, diseño de feed, selección y edición de texto para la producción de cápsulas y piezas para redes. Gestión editorial completa: desde la planificación hasta la publicación, tanto impresa como digital.</p>
+              <p class="trabajo-area-desc">Diseñé y ejecuté la estrategia editorial y visual para redes sociales, incluyendo planificación de contenidos, redacción y edición de textos, y diseño de publicaciones. Coordiné la producción de piezas que articulan criterios editoriales con objetivos de circulación digital e impresos.</p>
               <div class="trabajo-tags">
-                <span class="tag">Estrategia digital</span>
-                <span class="tag">Diseño de contenido</span>
-                <span class="tag">Redes sociales</span>
-                <span class="tag">Edición</span>
+                <span class="tag">Estrategia digital</span><span class="tag">Diseño de contenido</span><span class="tag">Redes sociales</span><span class="tag">Edición</span>
               </div>
             </div>
           </div>
-          <!-- Revista Impresa y Digital -->
+
+          <!-- Tierra Roja -->
           <div class="subproyecto">
             <div class="subproyecto-label">Revista Impresa y Digital</div>
             <div class="carrusel-wrap">
-              <p class="trabajo-area-desc">Integrante del equipo editorial. Edición de artículos (lectura, corrección y trabajo con autores para adecuación a la línea editorial), carga y publicación en web. Desarrollo de criterios de selección y adaptación de contenidos para su circulación digital: definición de títulos, elección de imágenes y fragmentos destacados para piezas de difusión.</p>
+              <p class="trabajo-area-desc">Parte del equipo editorial responsable de lectura crítica, corrección y trabajo colaborativo con autoras/os. Organicé la publicación en web y seleccioné títulos, imágenes y fragmentos para la circulación digital.</p>
               <a class="proyecto-link" href="https://www.instagram.com/tierraroja.com.ar/" target="_blank">↗ Instagram</a>
               <a class="proyecto-link" href="https://www.tierraroja.com.ar" target="_blank">↗ Sitio web</a>
               <div class="carrusel" id="c1a">
-                <div class="carrusel-slide"><img src="img/36.png" alt="Tierra Roja" /></div>
-                <div class="carrusel-slide"><img src="img/14.png" alt="Tierra Roja" /></div>
-                <div class="carrusel-slide"><img src="img/43.png" alt="Tierra Roja" /></div>
-                <div class="carrusel-slide"><img src="img/56.png" alt="Tierra Roja" /></div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/36.png" alt="Tierra Roja"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Entrevista Martín Kohan</div><div class="slide-leyenda-desc">Investigación previa sobre la obra del autor, diseño y realización de entrevista en profundidad, edición y adaptación del material para publicación y circulación en formato editorial/digital.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/14.png" alt="Tierra Roja"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Artículo </div><div class="slide-leyenda-desc">Revisión y edición del original junto al autor, definición de criterios de titulación (título, volanta y copete) y adaptación del contenido para su publicación en web y difusión en redes sociales.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/43.png" alt="Tierra Roja"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/56.png" alt="Tierra Roja"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
               </div>
-              <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('c1a',-1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('c1a',1)">→</button>
-                <div class="carrusel-dots" id="dots-c1a"></div>
-              </div>
+              <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('c1a',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('c1a',1)">→</button><div class="carrusel-dots" id="dots-c1a"></div></div>
             </div>
           </div>
-          <!-- Editorial -->
+
+          <!-- Tipas Móviles -->
           <div class="subproyecto">
             <div class="subproyecto-label">Editorial</div>
             <div class="carrusel-wrap">
-              <p class="trabajo-area-desc">Integrante del equipo editorial. Edición de originales y acompañamiento a autoras en el proceso de publicación. Diseño y ejecución de estrategia de difusión digital: planificación de contenidos, armado de carruseles con entrevistas a nuevas autoras y producción de piezas para redes sociales, articulando identidad editorial y circulación pública.</p>
+              <p class="trabajo-area-desc">Coordino la edición de originales y acompaño a autoras en el proceso de publicación. Diseñé y apliqué una estrategia de difusión digital conectando identidad editorial y circulación pública.</p>
               <a class="proyecto-link" href="https://www.instagram.com/tipasmoviles/" target="_blank">↗ Instagram</a>
               <div class="carrusel" id="c1b">
-                <div class="carrusel-slide"><img src="img/51.png" alt="Tipas Móviles"></div>
-                <div class="carrusel-slide"><img src="img/21.png" alt="Tipas Móviles"></div>
-                <div class="carrusel-slide"><img src="img/22.png" alt="Tipas Móviles"></div>
-                <div class="carrusel-slide"><img src="img/23.png" alt="Tipas Móviles"></div>
-                <div class="carrusel-slide"><img src="img/24.png" alt="Tipas Móviles"></div>
-                <div class="carrusel-slide"><img src="img/60.png" alt="Tipas Móviles"></div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/51.png" alt="Tipas Móviles"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/21.png" alt="Tipas Móviles"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/22.png" alt="Tipas Móviles"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/23.png" alt="Tipas Móviles"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/24.png" alt="Tipas Móviles"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/60.png" alt="Tipas Móviles"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
               </div>
-              <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('c1b',-1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('c1b',1)">→</button>
-                <div class="carrusel-dots" id="dots-c1b"></div>
-              </div>
+              <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('c1b',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('c1b',1)">→</button><div class="carrusel-dots" id="dots-c1b"></div></div>
             </div>
           </div>
+
           <!-- Enlace Social -->
           <div class="subproyecto">
             <div class="subproyecto-label">Enlace Social Asoc. Civil y Feria Si o Si Diseño Argentino</div>
             <div class="carrusel-wrap">
-              <p class="trabajo-area-desc">Responsable de comunicación digital para ferias y actividades institucionales. Planificación de cronograma de contenidos, coordinación interna de lineamientos comunicacionales y producción de piezas para redes sociales (posteos, carruseles y cobertura previa y durante los eventos).</p>
+              <p class="trabajo-area-desc">Lideré la comunicación digital de ferias y actividades institucionales: cronograma de contenidos, producción de piezas y cobertura digital durante los eventos.</p>
               <a class="proyecto-link" href="https://www.instagram.com/feria.siosi/" target="_blank">↗ Instagram</a>
               <div class="carrusel" id="c1c">
-                <div class="carrusel-slide" style="flex:0 0 240px;">
-                  <video src="img/61.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide" style="width:240px;"><video src="img/61.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
                 </div>
-                <div class="carrusel-slide"><img src="img/5.png" alt="Enlace Social"></div>
-                <div class="carrusel-slide"><img src="img/6.png" alt="Enlace Social"></div>
-                <div class="carrusel-slide"><img src="img/7.png" alt="Enlace Social"></div>
-                <div class="carrusel-slide"><img src="img/8.png" alt="Enlace Social"></div>
-                <div class="carrusel-slide"><img src="img/9.png" alt="Enlace Social"></div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/5.png" alt="Enlace Social"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/6.png" alt="Enlace Social"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/7.png" alt="Enlace Social"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/8.png" alt="Enlace Social"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
+                <div class="slide-con-leyenda">
+                  <div class="carrusel-slide"><img src="img/9.png" alt="Enlace Social"></div>
+                  <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+                </div>
               </div>
-              <div class="carrusel-nav">
-                <button class="carrusel-btn" onclick="scroll_c('c1c',-1)">←</button>
-                <button class="carrusel-btn" onclick="scroll_c('c1c',1)">→</button>
-                <div class="carrusel-dots" id="dots-c1c"></div>
-              </div>
+              <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('c1c',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('c1c',1)">→</button><div class="carrusel-dots" id="dots-c1c"></div></div>
             </div>
           </div>
         </div>
@@ -679,27 +479,33 @@
             <div class="trabajo-area-num"><span>02</span>Eventos</div>
             <div>
               <div class="trabajo-area-titulo">II Seminario Internacional Poetry Slam · UBA</div>
-              <p class="trabajo-area-desc">Coordinación general y comunicación integral del II Seminario Internacional Poetry Slam (evento integrado a la Semana de la Ciencia, FILO-UBA). Articulación con comité organizador, armado de mesas y coordinación con expositores de Argentina, Brasil, España, Portugal y Mozambique. Desarrollo de identidad visual (afiche A3 y piezas digitales), redacción de copys, publicación en redes y coordinación operativa de las dos jornadas.</p>
+              <p class="trabajo-area-desc">Coordiné integralmente el II Seminario Internacional Poetry Slam (Semana de la Ciencia, FILO-UBA). Identidad visual, textos institucionales, redes y coordinación operativa con participantes de Argentina, Brasil, España, Portugal y Mozambique.</p>
               <a class="proyecto-link" href="https://www.instagram.com/seminariopoetryslam/" target="_blank">↗ Instagram</a>
               <div class="trabajo-tags">
-                <span class="tag">Comunicación institucional</span>
-                <span class="tag">Diseño gráfico</span>
-                <span class="tag">Internacional</span>
+                <span class="tag">Comunicación institucional</span><span class="tag">Diseño gráfico</span><span class="tag">Internacional</span>
               </div>
             </div>
           </div>
           <div class="carrusel-wrap">
             <div class="carrusel" id="c2">
-              <div class="carrusel-slide"><img src="img/1.png" alt="Poetry Slam"></div>
-              <div class="carrusel-slide"><img src="img/2.png" alt="Poetry Slam"></div>
-              <div class="carrusel-slide"><img src="img/3.png" alt="Poetry Slam"></div>
-              <div class="carrusel-slide"><img src="img/4.png" alt="Poetry Slam"></div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/1.png" alt="Poetry Slam"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/2.png" alt="Poetry Slam"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/3.png" alt="Poetry Slam"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/4.png" alt="Poetry Slam"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
             </div>
-            <div class="carrusel-nav">
-              <button class="carrusel-btn" onclick="scroll_c('c2',-1)">←</button>
-              <button class="carrusel-btn" onclick="scroll_c('c2',1)">→</button>
-              <div class="carrusel-dots" id="dots-c2"></div>
-            </div>
+            <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('c2',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('c2',1)">→</button><div class="carrusel-dots" id="dots-c2"></div></div>
           </div>
         </div>
 
@@ -711,70 +517,81 @@
               <div class="trabajo-area-titulo">Para Revistas y Editoriales</div>
               <p class="trabajo-area-desc">Producción de artículos académicos, ponencias en congresos nacionales e internacionales, y adaptación de contenido académico para públicos amplios.</p>
               <div class="trabajo-tags">
-                <span class="tag">Escritura académica</span>
-                <span class="tag">Investigación</span>
-                <span class="tag">Ponencias</span>
-                <span class="tag">Divulgación</span>
+                <span class="tag">Escritura académica</span><span class="tag">Investigación</span><span class="tag">Ponencias</span><span class="tag">Divulgación</span>
               </div>
             </div>
           </div>
           <div class="carrusel-wrap">
             <div class="carrusel" id="c3">
-              <div class="carrusel-slide"><img src="img/63.png" alt="Edición"></div>
-              <div class="carrusel-slide"><img src="img/67.png" alt="Edición"></div>
-              <div class="carrusel-slide"><img src="img/19.png" alt="Edición"></div>
-              <div class="carrusel-slide"><img src="img/52.jpeg" alt="Edición"></div>
-              <div class="carrusel-slide"><img src="img/53.jpeg" alt="Edición"></div>
-              <div class="carrusel-slide"><img src="img/20.png" alt="Edición"></div>
-              <div class="carrusel-slide"><img src="img/56.png" alt="Edición"></div>
-              <div class="carrusel-slide"><img src="img/58.png" alt="Edición"></div>
-              
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/63.png" alt="Edición"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Edición Editorial – Editorial Maipué</div><div class="slide-leyenda-desc">Lectura completa de tesis doctoral, corrección de estilo y contenido, coordinación con la autora y el editor, armado y entrega de archivos finales listos para imprenta.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/67.png" alt="Edición"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/19.png" alt="Edición"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Producción editorial</div><div class="slide-leyenda-desc">Participación en la definición temática, edición integral de contenidos, producción de la revista impresa de principio a fin y publicación de dos artículos propios.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/52.jpeg" alt="Edición"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/53.jpeg" alt="Edición"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/20.png" alt="Edición"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/56.png" alt="Edición"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/58.png" alt="Edición"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
             </div>
-            <div class="carrusel-nav">
-              <button class="carrusel-btn" onclick="scroll_c('c3',-1)">←</button>
-              <button class="carrusel-btn" onclick="scroll_c('c3',1)">→</button>
-              <div class="carrusel-dots" id="dots-c3"></div>
-            </div>
+            <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('c3',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('c3',1)">→</button><div class="carrusel-dots" id="dots-c3"></div></div>
           </div>
         </div>
 
-        <!-- 04 · WEB E INSTITUCIONAL -->
+        <!-- 04 · WEB -->
         <div class="trabajo-area reveal">
           <div class="trabajo-area-header">
             <div class="trabajo-area-num"><span>04</span>Web e institucional</div>
             <div>
               <div class="trabajo-area-titulo">Syntaxys Digital · Agencia digital</div>
-              <p class="trabajo-area-desc">Diseño, desarrollo y mantenimiento de sitios web para pymes, proyectos culturales y artistas.</p>
+              <p class="trabajo-area-desc">Diseñé, desarrollé y mantuve sitios web para pymes, proyectos culturales y artistas, poniendo énfasis en la arquitectura editorial, experiencia de usuario y funcionalidad.</p>
               <div class="trabajo-tags">
-                <span class="tag">Programación web</span>
-                <span class="tag">Diseño</span>
-                <span class="tag">Mantenimiento</span>
-                <span class="tag">Newsletters y Google Ads</span>
+                <span class="tag">Programación web</span><span class="tag">Diseño</span><span class="tag">Mantenimiento</span><span class="tag">Newsletters y Google Ads</span>
               </div>
             </div>
           </div>
           <div class="carrusel-wrap">
             <div class="carrusel" id="c4">
-              <div class="carrusel-slide"><img src="img/25.png" alt="Web"></div>
-              <div class="carrusel-slide"><img src="img/26.png" alt="Web"></div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/25.png" alt="Web"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
+              <div class="slide-con-leyenda">
+                <div class="carrusel-slide"><img src="img/26.png" alt="Web"></div>
+                <div class="slide-leyenda"><div class="slide-leyenda-titulo">Título del proyecto</div><div class="slide-leyenda-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div></div>
+              </div>
             </div>
-            <div class="carrusel-nav">
-              <button class="carrusel-btn" onclick="scroll_c('c4',-1)">←</button>
-              <button class="carrusel-btn" onclick="scroll_c('c4',1)">→</button>
-              <div class="carrusel-dots" id="dots-c4"></div>
-            </div>
+            <div class="carrusel-nav"><button class="carrusel-btn" onclick="scroll_c('c4',-1)">←</button><button class="carrusel-btn" onclick="scroll_c('c4',1)">→</button><div class="carrusel-dots" id="dots-c4"></div></div>
           </div>
         </div>
 
-        <div class="seccion-cerrar">
-          <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-        </div>
+        <div class="seccion-cerrar"><button class="btn-cerrar" onclick="resetHome()">← Inicio</button></div>
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-         SECCIÓN: FORMACIÓN
-    ══════════════════════════════════════════ -->
+    <!-- ══════════════ FORMACIÓN ══════════════ -->
     <section id="formacion" class="seccion-principal">
       <div class="container">
         <div class="section-label">Formación</div>
@@ -783,7 +600,7 @@
             <h3>Posgrado</h3>
             <div class="formacion-item">
               <div class="formacion-titulo">Doctora en Literatura — En curso</div>
-              <div class="formacion-meta">Facultad de Filosofía y Letras, UBA<br />Tema: Poesía oral argentina · 2025 <br />Dir: Dra. Lucía Tennina</div>
+              <div class="formacion-meta">Facultad de Filosofía y Letras, UBA<br />Tema: Poesía oral argentina · 2025<br />Dir: Dra. Lucía Tennina</div>
             </div>
           </div>
           <div class="formacion-bloque">
@@ -803,151 +620,119 @@
           </div>
         </div>
 
-
-<!-- Experiencia profesional -->
-<div style="margin-top: 4rem;">
-  <div class="section-label">Experiencia profesional</div>
-
-  <!-- DOCENCIA -->
-  <div class="exp-bloque reveal">
-    <div class="exp-categoria">Docencia</div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div class="exp-titulo">Profesora Colaboradora</div>
-        <div class="exp-periodo">2° Cuatrimestre 2025</div>
-      </div>
-      <div class="formacion-meta">Facultad de Filosofía y Letras, UBA · Jornada parcial | Presencial</div>
-      <div class="exp-desc">Seminario de grado "Poesía oral, performance y territorio. Los slams de poesía como poética inexplorada de la poesía argentina". Prof. Titular: Dra. Lucía Tennina.</div>
-      <ul class="exp-lista">
-        <li>Colaboración en la planificación y dictado del seminario</li>
-        <li>Apoyo en actividades de investigación y análisis de corpus</li>
-        <li>Coordinación de actividades prácticas con estudiantes</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div class="exp-titulo">Investigadora en Formación</div>
-        <div class="exp-periodo">2022 — Actual</div>
-      </div>
-      <div class="formacion-meta">Instituto de Literatura Hispanoamericana, FFyL, UBA</div>
-      <div class="exp-desc">Integrante del proyecto "Los slams de poesía del AMBA. Poesía, cuerpo y territorio", dirigido por la Dra. Lucía Tennina.</div>
-      <ul class="exp-lista">
-        <li>Investigación sobre poesía oral, performance y slams en el AMBA</li>
-        <li>Trabajo de campo: asistencia a eventos, entrevistas, registro audiovisual</li>
-        <li>Análisis de corpus poético oral contemporáneo</li>
-        <li>Presentación de ponencias en jornadas y congresos nacionales e internacionales</li>
-        <li>Producción de artículos académicos y divulgación científica</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ORGANIZACIÓN DE EVENTOS -->
-  <div class="exp-bloque reveal">
-    <div class="exp-categoria">Organización de Eventos CyT</div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div class="exp-titulo">Miembro de la Comisión Organizadora</div>
-        <div class="exp-periodo">2025</div>
-      </div>
-      <div class="formacion-meta">II Seminario Internacional Poetry Slam · FFyL, UBA</div>
-      <div class="exp-desc">Organización del II Seminario Internacional Poetry Slam: circuitos y escenas de la poesía oral contemporánea (13 y 14 de noviembre de 2025).</div>
-      <ul class="exp-lista">
-        <li>Coordinación logística y académica del evento</li>
-        <li>Gestión de invitaciones a expositores nacionales e internacionales</li>
-        <li>Articulación entre áreas académicas y actividades culturales</li>
-        <li>Difusión y comunicación del evento</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- EXTENSIÓN Y TRANSFERENCIA -->
-  <div class="exp-bloque reveal">
-    <div class="exp-categoria">Extensión y transferencia</div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div class="exp-titulo">Co-Editora y Miembro del Consejo Editorial</div>
-        <div class="exp-periodo">2023 — 2025</div>
-      </div>
-      <div class="formacion-meta">Revista Tierra Roja</div>
-      <div class="exp-desc">Especializada en filosofía, política y cultura con una perspectiva argentina y latinoamericana.</div>
-    </div>
-  </div>
-
-  <!-- ÁMBITO EDITORIAL -->
-  <div class="exp-bloque reveal">
-    <div class="exp-categoria">Ámbito editorial</div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div class="exp-titulo">Asistente de Edición</div>
-        <div class="exp-periodo">2015 — 2018</div>
-      </div>
-      <div class="formacion-meta">Editorial Maipué</div>
-      <div class="exp-desc">Especializada en libros de texto, historia y cultura.</div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div class="exp-titulo">Asistente de Edición</div>
-        <div class="exp-periodo">2016 — 2018</div>
-      </div>
-      <div class="formacion-meta">Editorial Topía</div>
-      <div class="exp-desc">Especializada en psicoanálisis, cultura y sociedad.</div>
-    </div>
-  </div>
-
-</div>
-
+        <!-- Experiencia profesional -->
+        <div style="margin-top:4rem;">
+          <div class="section-label">Experiencia profesional</div>
+          <div class="exp-bloque reveal">
+            <div class="exp-categoria">Docencia</div>
+            <div class="exp-item">
+              <div class="exp-header">
+                <div class="exp-titulo">Profesora Colaboradora</div>
+                <div class="exp-periodo">2° Cuatrimestre 2025</div>
+              </div>
+              <div class="formacion-meta">Facultad de Filosofía y Letras, UBA · Jornada parcial | Presencial</div>
+              <div class="exp-desc">Seminario de grado "Poesía oral, performance y territorio. Los slams de poesía como poética inexplorada de la poesía argentina". Prof. Titular: Dra. Lucía Tennina.</div>
+              <ul class="exp-lista">
+                <li>Colaboración en la planificación y dictado del seminario</li>
+                <li>Apoyo en actividades de investigación y análisis de corpus</li>
+                <li>Coordinación de actividades prácticas con estudiantes</li>
+              </ul>
+            </div>
+            <div class="exp-item">
+              <div class="exp-header">
+                <div class="exp-titulo">Investigadora en Formación</div>
+                <div class="exp-periodo">2022 — Actual</div>
+              </div>
+              <div class="formacion-meta">Instituto de Literatura Hispanoamericana, FFyL, UBA</div>
+              <div class="exp-desc">Integrante del proyecto "Los slams de poesía del AMBA. Poesía, cuerpo y territorio", dirigido por la Dra. Lucía Tennina.</div>
+              <ul class="exp-lista">
+                <li>Investigación sobre poesía oral, performance y slams en el AMBA</li>
+                <li>Trabajo de campo: asistencia a eventos, entrevistas, registro audiovisual</li>
+                <li>Análisis de corpus poético oral contemporáneo</li>
+                <li>Presentación de ponencias en jornadas y congresos nacionales e internacionales</li>
+                <li>Producción de artículos académicos y divulgación científica</li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp-bloque reveal">
+            <div class="exp-categoria">Organización de Eventos CyT</div>
+            <div class="exp-item">
+              <div class="exp-header">
+                <div class="exp-titulo">Miembro de la Comisión Organizadora</div>
+                <div class="exp-periodo">2025</div>
+              </div>
+              <div class="formacion-meta">II Seminario Internacional Poetry Slam · FFyL, UBA</div>
+              <div class="exp-desc">Organización del II Seminario Internacional Poetry Slam: circuitos y escenas de la poesía oral contemporánea (13 y 14 de noviembre de 2025).</div>
+              <ul class="exp-lista">
+                <li>Coordinación logística y académica del evento</li>
+                <li>Gestión de invitaciones a expositores nacionales e internacionales</li>
+                <li>Articulación entre áreas académicas y actividades culturales</li>
+                <li>Difusión y comunicación del evento</li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp-bloque reveal">
+            <div class="exp-categoria">Extensión y transferencia</div>
+            <div class="exp-item">
+              <div class="exp-header">
+                <div class="exp-titulo">Co-Editora y Miembro del Consejo Editorial</div>
+                <div class="exp-periodo">2023 — 2025</div>
+              </div>
+              <div class="formacion-meta">Revista Tierra Roja</div>
+              <div class="exp-desc">Especializada en filosofía, política y cultura con una perspectiva argentina y latinoamericana.</div>
+            </div>
+          </div>
+          <div class="exp-bloque reveal">
+            <div class="exp-categoria">Ámbito editorial</div>
+            <div class="exp-item">
+              <div class="exp-header">
+                <div class="exp-titulo">Asistente de Edición</div>
+                <div class="exp-periodo">2015 — 2018</div>
+              </div>
+              <div class="formacion-meta">Editorial Maipué</div>
+              <div class="exp-desc">Especializada en libros de texto, historia y cultura.</div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-header">
+                <div class="exp-titulo">Asistente de Edición</div>
+                <div class="exp-periodo">2016 — 2018</div>
+              </div>
+              <div class="formacion-meta">Editorial Topía</div>
+              <div class="exp-desc">Especializada en psicoanálisis, cultura y sociedad.</div>
+            </div>
+          </div>
+        </div>
 
         <!-- Herramientas -->
-        <div style="margin-top: 4rem;">
+        <div style="margin-top:4rem;">
           <div class="section-label">Herramientas y tecnologías</div>
           <div class="herramientas-grid reveal">
             <div class="herr-bloque">
               <div class="herr-label">Redes sociales</div>
               <div class="herr-items">
-                <span class="herr-tag">Instagram</span>
-                <span class="herr-tag">Facebook</span>
-                <span class="herr-tag">Twitter / X</span>
-                <span class="herr-tag">LinkedIn</span>
-                <span class="herr-tag">TikTok</span>
-                <span class="herr-tag">YouTube</span>
+                <span class="herr-tag">Instagram</span><span class="herr-tag">Facebook</span><span class="herr-tag">Twitter / X</span><span class="herr-tag">LinkedIn</span><span class="herr-tag">TikTok</span><span class="herr-tag">YouTube</span>
               </div>
             </div>
             <div class="herr-bloque">
               <div class="herr-label">Diseño</div>
               <div class="herr-items">
-                <span class="herr-tag">Canva</span>
-                <span class="herr-tag">Adobe Illustrator</span>
-                <span class="herr-tag">Photoshop</span>
-                <span class="herr-tag">InDesign</span>
+                <span class="herr-tag">Canva</span><span class="herr-tag">Adobe Illustrator</span><span class="herr-tag">Photoshop</span><span class="herr-tag">InDesign</span>
               </div>
             </div>
             <div class="herr-bloque">
               <div class="herr-label">Programación y tecnología</div>
               <div class="herr-items">
-                <span class="herr-tag">HTML / CSS / JS</span>
-                <span class="herr-tag">WordPress</span>
-                <span class="herr-tag">SQL</span>
-                <span class="herr-tag herr-tag--accent">IA — Claude · ChatGPT · APIs</span>
+                <span class="herr-tag">HTML / CSS / JS</span><span class="herr-tag">WordPress</span><span class="herr-tag">SQL</span><span class="herr-tag herr-tag--accent">IA — Claude · ChatGPT · APIs</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="seccion-cerrar">
-          <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-        </div>
+        <div class="seccion-cerrar"><button class="btn-cerrar" onclick="resetHome()">← Inicio</button></div>
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-         SECCIÓN: CONTACTO
-    ══════════════════════════════════════════ -->
+    <!-- ══════════════ CONTACTO ══════════════ -->
     <section id="contacto" class="seccion-principal">
       <div class="container">
         <div class="contacto-inner reveal">
@@ -961,13 +746,10 @@
             <a class="contacto-link" href="#">Caballito, Buenos Aires</a>
           </div>
         </div>
-        <div class="seccion-cerrar">
-          <button class="btn-cerrar" onclick="resetHome()">← Inicio</button>
-        </div>
+        <div class="seccion-cerrar"><button class="btn-cerrar" onclick="resetHome()">← Inicio</button></div>
       </div>
     </section>
 
-    <!-- ─── FOOTER ─── -->
     <footer>
       <div class="container">
         <span>Noelia Abraham · 2026</span>
@@ -976,39 +758,28 @@
     </footer>
 
     <script>
-      // ─── Reveal ───
       const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              setTimeout(() => e.target.classList.add("visible"), 80);
-              observer.unobserve(e.target);
-            }
-          });
-        },
+        (entries) => { entries.forEach((e) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add("visible"), 80); observer.unobserve(e.target); } }); },
         { threshold: 0.08 }
       );
       document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-      // ─── Navegación ───
-      
       function mostrarSeccion(id) {
-  document.querySelectorAll('.seccion-principal').forEach(s => s.classList.remove('activa'));
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('activo'));
-  const seccion = document.getElementById(id);
-  if (seccion) {
-    seccion.classList.add('activa');
-    // Primero activa los reveals, después scrollea
-    setTimeout(() => {
-      seccion.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-      const navH = document.querySelector('nav').offsetHeight;
-      const top = seccion.getBoundingClientRect().top + window.scrollY - navH;
-      window.scrollTo({ top: top, behavior: 'smooth' });
-    }, 50);
-  }
-  const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-  if (link) link.classList.add('activo');
-}
+        document.querySelectorAll('.seccion-principal').forEach(s => s.classList.remove('activa'));
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('activo'));
+        const seccion = document.getElementById(id);
+        if (seccion) {
+          seccion.classList.add('activa');
+          setTimeout(() => {
+            seccion.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+            const navH = document.querySelector('nav').offsetHeight;
+            const top = seccion.getBoundingClientRect().top + window.scrollY - navH;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }, 50);
+        }
+        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (link) link.classList.add('activo');
+      }
 
       function resetHome() {
         document.querySelectorAll('.seccion-principal').forEach(s => s.classList.remove('activa'));
@@ -1023,7 +794,6 @@
         });
       });
 
-      // ─── Carruseles ───
       const ids = ["c1a","c1b","c1c","c2","c3","c4","cp1a","cp1b","cp1c","cp1d","cp2","cp3"];
 
       function buildDots(id) {
@@ -1031,7 +801,11 @@
         const dotsEl = document.getElementById("dots-" + id);
         if (!c || !dotsEl) return;
         dotsEl.innerHTML = "";
-        c.querySelectorAll(".carrusel-slide").forEach((_, i) => {
+        // Cuenta slides-con-leyenda si existen, sino carrusel-slide
+        const slides = c.querySelectorAll(".slide-con-leyenda").length
+          ? c.querySelectorAll(".slide-con-leyenda")
+          : c.querySelectorAll(".carrusel-slide");
+        slides.forEach((_, i) => {
           const d = document.createElement("div");
           d.className = "carrusel-dot" + (i === 0 ? " active" : "");
           dotsEl.appendChild(d);
@@ -1042,17 +816,19 @@
         const c = document.getElementById(id);
         const dotsEl = document.getElementById("dots-" + id);
         if (!c || !dotsEl) return;
-        const slideW = c.querySelector(".carrusel-slide").offsetWidth + 16;
+        const firstSlide = c.querySelector(".slide-con-leyenda") || c.querySelector(".carrusel-slide");
+        if (!firstSlide) return;
+        const slideW = firstSlide.offsetWidth + 16;
         const idx = Math.round(c.scrollLeft / slideW);
-        dotsEl.querySelectorAll(".carrusel-dot").forEach((d, i) => {
-          d.classList.toggle("active", i === idx);
-        });
+        dotsEl.querySelectorAll(".carrusel-dot").forEach((d, i) => { d.classList.toggle("active", i === idx); });
       }
 
       function scroll_c(id, dir) {
         const c = document.getElementById(id);
         if (!c) return;
-        const slideW = c.querySelector(".carrusel-slide").offsetWidth + 16;
+        const firstSlide = c.querySelector(".slide-con-leyenda") || c.querySelector(".carrusel-slide");
+        if (!firstSlide) return;
+        const slideW = firstSlide.offsetWidth + 16;
         c.scrollBy({ left: dir * slideW, behavior: "smooth" });
       }
 
@@ -1062,17 +838,10 @@
         if (!c) return;
         c.addEventListener("scroll", () => updateDots(id), { passive: true });
         let isDown = false, startX, scrollLeft;
-        c.addEventListener("mousedown", (e) => {
-          isDown = true; c.style.cursor = "grabbing";
-          startX = e.pageX - c.offsetLeft; scrollLeft = c.scrollLeft;
-        });
+        c.addEventListener("mousedown", (e) => { isDown = true; c.style.cursor = "grabbing"; startX = e.pageX - c.offsetLeft; scrollLeft = c.scrollLeft; });
         c.addEventListener("mouseleave", () => { isDown = false; c.style.cursor = "grab"; });
         c.addEventListener("mouseup", () => { isDown = false; c.style.cursor = "grab"; });
-        c.addEventListener("mousemove", (e) => {
-          if (!isDown) return;
-          e.preventDefault();
-          c.scrollLeft = scrollLeft - (e.pageX - c.offsetLeft - startX) * 1.5;
-        });
+        c.addEventListener("mousemove", (e) => { if (!isDown) return; e.preventDefault(); c.scrollLeft = scrollLeft - (e.pageX - c.offsetLeft - startX) * 1.5; });
       });
     </script>
   </body>
